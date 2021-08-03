@@ -17,6 +17,8 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELAc
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDateUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_Glide
+import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_Volley
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Adapter.LaunchAdapter
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.LaunchDto
 import java.util.ArrayList
@@ -200,36 +202,36 @@ class Activity_MainMenu : XELActivity_Base() {
                     XELDialogUtil.LoadingDialog(this@Activity_MainMenu)
                     XELDialogUtil.closeWait(2000)
                 }
-//                7 -> {
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-////                        Intent intent_startLaunchAct = new Intent(Activity_MainMenu.this, Activity_Volley.class);
-////                        startActivity(intent_startLaunchAct, ActivityOptions.makeSceneTransitionAnimation(Activity_MainMenu.this).toBundle());
-//
-////                        Intent intent_startLaunchAct = new Intent(Activity_MainMenu.this, Activity_Volley.class);
-////                        startActivity(intent_startLaunchAct);
-//                    }
-//
-//                    val sharedView: View = view!!.findViewById<View>(R.id.row_launch_iv_image) as ImageView
-//                    val transitionName = getString(R.string.testMoveTransition)
-//                    val intent_startLaunchAct =
-//                        Intent(this@Activity_MainMenu, Activity_Volley::class.java)
-//                    val transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
-//                        this@Activity_MainMenu,
-//                        Pair.create(sharedView, transitionName)
-//                    )
-//                    startActivity(intent_startLaunchAct, transitionActivityOptions.toBundle())
-//                }
-//                8 -> {
-//                    val intent_startGlide =
-//                        Intent(this@Activity_MainMenu, Activity_Glide::class.java)
-//
-////                    // 애니메이션 추가
-//                    val transitionActivityOptions_glide =
-//                        ActivityOptions.makeSceneTransitionAnimation(
-//                            this@Activity_MainMenu
-//                        )
-//                    startActivity(intent_startGlide, transitionActivityOptions_glide.toBundle())
-//                }
+                7 -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                        Intent intent_startLaunchAct = new Intent(Activity_MainMenu.this, Activity_Volley.class);
+//                        startActivity(intent_startLaunchAct, ActivityOptions.makeSceneTransitionAnimation(Activity_MainMenu.this).toBundle());
+
+//                        Intent intent_startLaunchAct = new Intent(Activity_MainMenu.this, Activity_Volley.class);
+//                        startActivity(intent_startLaunchAct);
+                    }
+
+                    val sharedView: View = view!!.findViewById<View>(R.id.row_launch_iv_image) as ImageView
+                    val transitionName = getString(R.string.testMoveTransition)
+                    val intent_startLaunchAct =
+                        Intent(this@Activity_MainMenu, Activity_Volley::class.java)
+                    val transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
+                        this@Activity_MainMenu,
+                        Pair.create(sharedView, transitionName)
+                    )
+                    startActivity(intent_startLaunchAct, transitionActivityOptions.toBundle())
+                }
+                8 -> {
+                    val intent_startGlide =
+                        Intent(this@Activity_MainMenu, Activity_Glide::class.java)
+
+//                    // 애니메이션 추가
+                    val transitionActivityOptions_glide =
+                        ActivityOptions.makeSceneTransitionAnimation(
+                            this@Activity_MainMenu
+                        )
+                    startActivity(intent_startGlide, transitionActivityOptions_glide.toBundle())
+                }
 //                9 -> {
 //                    val intent_startNFC_WRITE =
 //                        Intent(this@Activity_MainMenu, Activity_NFCWrite::class.java)

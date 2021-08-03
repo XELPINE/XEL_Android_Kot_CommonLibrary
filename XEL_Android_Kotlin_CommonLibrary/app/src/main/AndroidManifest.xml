@@ -38,10 +38,10 @@
         <activity android:name=".Activity_MainMenu">
         </activity>
 
-        <activity android:name=".Activity_Volley">
+        <activity android:name=".Z_CustomCode.Activity_Volley">
         </activity>
 
-        <activity android:name=".Activity_Glide">
+        <activity android:name=".Z_CustomCode.Activity_Glide">
         </activity>
 
         <activity android:name=".Activity_NFCWrite">
