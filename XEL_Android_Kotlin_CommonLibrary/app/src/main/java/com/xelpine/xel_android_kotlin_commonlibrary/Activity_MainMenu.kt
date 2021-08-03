@@ -253,13 +253,13 @@ class Activity_MainMenu : XELActivity_Base() {
                         Intent(this@Activity_MainMenu, Activity_FileRead::class.java)
                     startActivity(intent_startFILE_READ)
                 }
-//                13 -> {
-//                    val intent_startIMAGEFILE_READ = Intent(
-//                        this@Activity_MainMenu,
-//                        Activity_ImageFileRead::class.java
-//                    )
-//                    startActivity(intent_startIMAGEFILE_READ)
-//                }
+                13 -> {
+                    val intent_startIMAGEFILE_READ = Intent(
+                        this@Activity_MainMenu,
+                        Activity_ImageFileRead::class.java
+                    )
+                    startActivity(intent_startIMAGEFILE_READ)
+                }
             }
             
             

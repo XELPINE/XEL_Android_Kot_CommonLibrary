@@ -56,7 +56,7 @@
         <activity android:name=".Z_CustomCode.Activity_FileRead">
         </activity>
 
-        <activity android:name=".Activity_ImageFileRead">
+        <activity android:name=".Z_CustomCode.Activity_ImageFileRead">
         </activity>
     </application>
 
