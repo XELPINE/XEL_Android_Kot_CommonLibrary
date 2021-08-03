@@ -50,10 +50,10 @@
         <activity android:name=".Z_CustomCode.Activity_NFCRead">
         </activity>
 
-        <activity android:name=".Activity_FileWrite">
+        <activity android:name=".Z_CustomCode.Activity_FileWrite">
         </activity>
 
-        <activity android:name=".Activity_FileRead">
+        <activity android:name=".Z_CustomCode.Activity_FileRead">
         </activity>
 
         <activity android:name=".Activity_ImageFileRead">
