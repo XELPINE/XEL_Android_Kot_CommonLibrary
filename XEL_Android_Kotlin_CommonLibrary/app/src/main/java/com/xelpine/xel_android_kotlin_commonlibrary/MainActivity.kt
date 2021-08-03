@@ -1,5 +1,6 @@
 package com.xelpine.xel_android_kotlin_commonlibrary
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -37,6 +38,11 @@ class MainActivity : XELActivity_Base() {
     }
 
     override fun initAfterLogic() {
+
+        val intent_start : Intent = Intent(this, Activity_MainMenu::class.java)
+        startActivity(intent_start)
+
+
     }
 
     override fun doPause() {

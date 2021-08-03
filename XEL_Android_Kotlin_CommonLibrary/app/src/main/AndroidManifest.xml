@@ -30,6 +30,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".CommonUtils.XELPermissionHelper.XELPermissionActivity" android:theme="@style/Theme.XEL_Activity_Transparent">
+        </activity>
+
+        <activity android:name=".Activity_MainMenu">
+        </activity>
+
+        <activity android:name=".Activity_Volley">
+        </activity>
+
+        <activity android:name=".Activity_Glide">
+        </activity>
+
+        <activity android:name=".Activity_NFCWrite">
+        </activity>
+
+        <activity android:name=".Activity_NFCRead">
+        </activity>
+
+        <activity android:name=".Activity_FileWrite">
+        </activity>
+
+        <activity android:name=".Activity_FileRead">
+        </activity>
+
+        <activity android:name=".Activity_ImageFileRead">
+        </activity>
     </application>
 
 </manifest>

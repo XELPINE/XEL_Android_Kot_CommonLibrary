@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">XEL_Android_Kotlin_CommonLibrary</string>
+
+    <string name="testMoveTransition">testMoveTransition</string>
 </resources>

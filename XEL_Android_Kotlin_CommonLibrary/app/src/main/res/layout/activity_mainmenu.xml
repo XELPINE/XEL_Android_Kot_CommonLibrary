@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     app:statusBarBackground="?attr/colorPrimary"
-    tools:context=".Sample_LaunchActivity">
+    tools:context=".Activity_MainMenu">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
