@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="xel_cardview_outerpadding">5dip</dimen> <!-- 카드뷰의 외부 패딩 (레이아웃 / 카드뷰) -->
+    <dimen name="xel_cardview_innerinterval">7dip</dimen> <!-- 카드뷰의 내부 간격 (카드뷰 내부에서의 width) -->
+    <dimen name="xel_cardview_innerinterval_samegrade">5dip</dimen> <!-- 카드뷰의 내부 간격 (같은 등급 아이템) -->
+    <dimen name="xel_cardview_outerinterval">7dip</dimen> <!-- 카드뷰의 외부 간격 (카드뷰 / 카드뷰) -->
+    <dimen name="xel_cardview_contentspadding">10dip</dimen> <!-- 카드뷰의 컨텐츠 패딩 -->
+    <dimen name="xel_cardview_cornerradius">5dip</dimen> <!-- 카드뷰의 코너 둥글기 -->
+    <dimen name="xel_nextSection_item_to_header_interval">20dip</dimen> <!-- 섹션 간 간격 (위가 아이템, 아래가 헤더) -->
+    <dimen name="xel_nextSection_header_to_item_interval">5dip</dimen> <!-- 섹션 간 간격 (위가 헤더, 아래가 아이템) -->
+    <dimen name="xel_divider_margin">10dip</dimen> <!-- 리사이클러뷰 디바이더 마진 -->
+
+    <dimen name="xel_actionbarsize">48dip</dimen> <!-- 액션바 사이즈 -->
+
+</resources>

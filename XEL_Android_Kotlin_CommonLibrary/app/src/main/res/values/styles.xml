@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 다이얼로그 유틸에서 사용 -->
+    <style name="Theme_Dialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <!-- 투명 액티비티 -->
+    <style name="Theme.XEL_Activity_Transparent" parent="Theme.XEL_Android_CommonLibrary">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!-- 투명 팝업 액티비티 -->
+    <style name="Theme.XEL_Activity_PopupTransparent" parent="Theme.XEL_Android_CommonLibrary">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- Collpasing 툴바 -->
+    <!-- 툴바 좁혀졌을 때 -->
+    <style name="XEL.TextAppearance.Toolbar.Collapsed" parent="android:TextAppearance.Material.Widget.Toolbar.Title">
+        <item name="android:textColor">@color/common_white_only</item>
+    </style>
+
+    <!-- 툴바 늘어났을 때-->
+    <style name="XEL.TextAppearance.Toolbar.Expanded" parent="android:TextAppearance.Material.Widget.Toolbar.Title">
+        <item name="android:textColor">@color/common_white_only</item>
+        <item name="android:textSize">28dip</item>
+    </style>
+
+    <!-- 아웃라인 버튼의 컬러만 레드로 바꾸는 스타일 -->
+    <style name="XEL.OutlineButton_Red" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+
+        <item name="materialThemeOverlay">@style/XEL_RedButtonThemeOverlay</item>
+    </style>
+
+    <style name="XEL.NormalButton_Red" parent="@style/Widget.MaterialComponents.Button">
+
+        <item name="materialThemeOverlay">@style/XEL_RedButtonThemeOverlay</item>
+    </style>
+
+    <style name="XEL_RedButtonThemeOverlay">
+        <item name="colorPrimary">@color/common_red_50percent</item>
+    </style>
+
+    <!-- 아웃라인 버튼의 컬러만 레드로 바꾸는 스타일 끝 -->
+
+
+    <!-- 메테리얼 디자인 얼럿 다이얼로그 커스텀 -->
+    <style name="XEL_.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/XEL_MaterialAlertDialogMyTitle</item>
+    </style>
+    <style name="XEL_MaterialAlertDialogMyTitle" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+    </style>
+    <style name="XEL_MaterialAlertDialogMyTitle_TextAppearance" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 메테리얼 디자인 얼럿 다이얼로그 커스텀 끝 -->
+
+
+    <style name="XEL_AnimationPopupStyle_Bottom">
+        <item name="android:windowEnterAnimation">@anim/xel_anim_slide_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/xel_anim_slide_bottom_out</item>
+    </style>
+</resources>

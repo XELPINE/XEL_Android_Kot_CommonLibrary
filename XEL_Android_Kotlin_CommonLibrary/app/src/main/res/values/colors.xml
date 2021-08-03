@@ -5,6 +5,28 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="common_black_only">#FF000000</color>
+    <color name="common_white_only">#FFFFFFFF</color>
+
+    <!-- 라이브러리 전용 컬러 -->
+    <color name="common_white_nightmode">#ffffff</color>
+    <color name="common_black_nightmode">#000000</color>
+    <color name="common_lightgray_nightmode">#d3d3d3</color>
+    <color name="common_cardviewstroke">#d5d5d5</color>
+    <color name="common_red">#ff0000</color>
+    <color name="common_red_50percent">#ff5252</color>
+    <color name="common_transparent">#00000000</color>
+    <color name="common_white_background_nightmode">#ffffff</color>
+
+    <color name="duzonColor">#1c90fb</color>
+    <color name="duzonColor_50pertransparent">#b0e2ff</color>
+
+    <!-- Line Colors -->
+    <color name="LineCol1">#c8c8c8</color>
+    <color name="LineCol2">#a7a7a7</color>
+    <color name="LineCol3">#0b6ab2</color>
+    <color name="LineCol4">#77add4</color>
+    <color name="LineCol5">#838383</color>
+    <color name="LineCol6">#efefef</color>
+
 </resources>
