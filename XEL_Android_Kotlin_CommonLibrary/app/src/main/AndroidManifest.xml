@@ -44,10 +44,10 @@
         <activity android:name=".Z_CustomCode.Activity_Glide">
         </activity>
 
-        <activity android:name=".Activity_NFCWrite">
+        <activity android:name=".Z_CustomCode.Activity_NFCWrite">
         </activity>
 
-        <activity android:name=".Activity_NFCRead">
+        <activity android:name=".Z_CustomCode.Activity_NFCRead">
         </activity>
 
         <activity android:name=".Activity_FileWrite">

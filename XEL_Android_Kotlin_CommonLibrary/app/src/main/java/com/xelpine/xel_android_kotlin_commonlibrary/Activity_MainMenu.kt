@@ -18,6 +18,8 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDateUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_Glide
+import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_NFCRead
+import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_NFCWrite
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Activity_Volley
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Adapter.LaunchAdapter
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.LaunchDto
@@ -232,16 +234,16 @@ class Activity_MainMenu : XELActivity_Base() {
                         )
                     startActivity(intent_startGlide, transitionActivityOptions_glide.toBundle())
                 }
-//                9 -> {
-//                    val intent_startNFC_WRITE =
-//                        Intent(this@Activity_MainMenu, Activity_NFCWrite::class.java)
-//                    startActivity(intent_startNFC_WRITE)
-//                }
-//                10 -> {
-//                    val intent_startNFC_READ =
-//                        Intent(this@Activity_MainMenu, Activity_NFCRead::class.java)
-//                    startActivity(intent_startNFC_READ)
-//                }
+                9 -> {
+                    val intent_startNFC_WRITE =
+                        Intent(this@Activity_MainMenu, Activity_NFCWrite::class.java)
+                    startActivity(intent_startNFC_WRITE)
+                }
+                10 -> {
+                    val intent_startNFC_READ =
+                        Intent(this@Activity_MainMenu, Activity_NFCRead::class.java)
+                    startActivity(intent_startNFC_READ)
+                }
 //                11 -> {
 //                    val intent_startFILE_WRITE = Intent(
 //                        this@Activity_MainMenu,
