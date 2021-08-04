@@ -148,7 +148,7 @@ class Activity_Volley : XELActivity_Base() {
         }
     }
 
-    override fun onDataException(e: Exception?) {
+    override fun onDataException(e: Exception) {
         XELLogUtil.e(XELGlobalDefine.TAG, "===== TEST onDataException")
     }
 
