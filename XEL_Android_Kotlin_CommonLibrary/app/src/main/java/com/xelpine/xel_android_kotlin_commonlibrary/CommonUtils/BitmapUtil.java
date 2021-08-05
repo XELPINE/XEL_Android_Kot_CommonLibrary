@@ -556,7 +556,7 @@ public class BitmapUtil {
 
     public static boolean SaveBitmapToFileCache(Bitmap bitmap, String strFilePath, String filename)
     {
-        XELLogUtil.d_function(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : " + filename);
+        XELLogUtil.Companion.d_function(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : " + filename);
 
         boolean isSuccess = false;
 
@@ -581,10 +581,10 @@ public class BitmapUtil {
 
             isSuccess = true;
 
-            XELLogUtil.d_function(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : (성공)");
+            XELLogUtil.Companion.d_function(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : (성공)");
         } catch (Exception e) {
             e.printStackTrace();
-            XELLogUtil.e(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : (실패)", e);
+            XELLogUtil.Companion.e(XELGlobalDefine.TAG, "SaveBitmapToFileCache (이미지 저장) : (실패)", e);
         } finally {
             try {
                 out.close();

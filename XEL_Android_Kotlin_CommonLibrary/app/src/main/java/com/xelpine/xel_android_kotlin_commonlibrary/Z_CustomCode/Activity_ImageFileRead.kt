@@ -1,7 +1,6 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode
 
 import android.Manifest
-import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -68,15 +67,17 @@ class Activity_ImageFileRead : XELActivity_Base(){
     /**
      * 권한 요청 콜백
      */
-    var callback: XELPermissionCallback = object : XELPermissionCallback {
-        override fun PermissionPermitedAll(str_permissionName: Array<String>) {
+    var callback: XELPermissionCallback = object : XELPermissionCallback{
+        override fun PermissionPermitedAll(str_permissionName: Array<String?>?) {
             var str_result = "퍼미션 전체 허용 \n"
-            for (i in str_permissionName.indices) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 허용됨 - " + str_permissionName[i])
-                str_result = """
-                $str_result${str_permissionName[i]}
-                
-                """.trimIndent()
+            if (str_permissionName != null) {
+                for (i in str_permissionName.indices) {
+                    XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 허용됨 - " + str_permissionName[i])
+                    str_result = """
+                        $str_result${str_permissionName[i]}
+                        
+                        """.trimIndent()
+                }
             }
 
 //            Toast.makeText(Activity_ImageFileRead.this, "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
@@ -84,14 +85,16 @@ class Activity_ImageFileRead : XELActivity_Base(){
         }
 
         override fun PermissionPermitedPart(str_permissionName: Array<String?>?) {}
-        override fun PermissionDenied(str_permissionName: Array<String>) {
+        override fun PermissionDenied(str_permissionName: Array<String?>?) {
             var str_result = "퍼미션 일부 거부 \n"
-            for (i in str_permissionName.indices) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 거부됨 - " + str_permissionName[i])
-                str_result = """
-                $str_result${str_permissionName[i]}
-                
-                """.trimIndent()
+            if (str_permissionName != null) {
+                for (i in str_permissionName.indices) {
+                    XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 거부됨 - " + str_permissionName[i])
+                    str_result = """
+                        $str_result${str_permissionName[i]}
+                        
+                        """.trimIndent()
+                }
             }
         }
 

@@ -34,7 +34,7 @@ public class XELMoveUpFowardBehavior extends CoordinatorLayout.Behavior<View> {
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
 
-        XELLogUtil.d_function(XELGlobalDefine.TAG, "onDependentViewChanged");
+        XELLogUtil.Companion.d_function(XELGlobalDefine.TAG, "onDependentViewChanged");
 
         // 스낵바 높이만큼만 올라가기 때문에 15dip 정도 값을 더 줘서 오르도록 한다.
         float translationY = Math.min(0, ViewCompat.getTranslationY(dependency)-15 - dependency.getHeight());
@@ -51,7 +51,7 @@ public class XELMoveUpFowardBehavior extends CoordinatorLayout.Behavior<View> {
     //you need this when you swipe the snackbar(thanx to ubuntudroid's comment)
     @Override
     public void onDependentViewRemoved(CoordinatorLayout parent, View child, View dependency) {
-        XELLogUtil.d_function(XELGlobalDefine.TAG, "onDependentViewRemoved");
+        XELLogUtil.Companion.d_function(XELGlobalDefine.TAG, "onDependentViewRemoved");
 
         ViewCompat.animate(child).translationY(0).start();
     }

@@ -33,7 +33,7 @@ public class XELVolleyUtil
                                               DefaultRetryPolicy policy,
                                               XELVolleyResponseInterface responseInterface)
     {
-        XELDialogUtil.LoadingDialog(context);
+        XELDialogUtil.Companion.LoadingDialog(context);
 
         // ResponseListener / ResponseErrorListener 인스턴스 생성
         Volley_Response_StringListener stringListener = new Volley_Response_StringListener();

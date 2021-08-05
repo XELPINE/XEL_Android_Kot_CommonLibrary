@@ -32,7 +32,17 @@
         </activity>
 
         <activity
-            android:name=".CommonUtils.XELPermissionHelper.XELPermissionActivity" android:theme="@style/Theme.XEL_Activity_Transparent">
+            android:name=".CommonUtils.XELPermissionHelper.XELPermissionActivity" android:theme="@style/Theme.XEL_Activity_Transparent"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+
+        <activity
+            android:name=".CommonUtils.XELActivity.XELActivity_BottomPopup" android:theme="@style/Theme.XEL_Activity_PopupTransparent"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
         </activity>
 
         <activity android:name=".Activity_MainMenu">

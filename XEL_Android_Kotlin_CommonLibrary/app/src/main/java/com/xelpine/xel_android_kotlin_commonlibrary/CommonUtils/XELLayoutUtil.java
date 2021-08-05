@@ -14,8 +14,8 @@ public class XELLayoutUtil
      */
     public static ViewGroup.LayoutParams SetLayoutWidthAndHeightWithDIP (ViewGroup.LayoutParams layoutParams, int width, int height)
     {
-        layoutParams.width = XELDisplayUtil.dpToPixel(width);
-        layoutParams.height = XELDisplayUtil.dpToPixel(height);
+        layoutParams.width = XELDisplayUtil.Companion.dpToPixel(Float.valueOf(width));
+        layoutParams.height = XELDisplayUtil.Companion.dpToPixel(Float.valueOf(height));
 
         return layoutParams;
     }

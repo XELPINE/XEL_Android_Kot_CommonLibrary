@@ -251,14 +251,14 @@ class Activity_FileRead : XELActivity_Base ()
      * 권한 요청 콜백
      */
     var callback: XELPermissionCallback = object : XELPermissionCallback {
-        override fun PermissionPermitedAll(str_permissionName: Array<String>) {
+        override fun PermissionPermitedAll(str_permissionName: Array<String?>?) {
             var str_result = "퍼미션 허용 \n"
-            for (i in str_permissionName.indices) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 허용됨 - " + str_permissionName[i])
-                str_result = """
-                $str_result${str_permissionName[i]}
-                
-                """.trimIndent()
+
+            if (str_permissionName != null) {
+                for (i in str_permissionName.indices) {
+                    XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 허용됨 - " + str_permissionName[i])
+                    str_result += "/" + str_permissionName[i]
+                }
             }
 
 //            relativeLayout_main.setBackgroundColor(Color.GREEN);
@@ -271,14 +271,19 @@ class Activity_FileRead : XELActivity_Base ()
         }
 
         override fun PermissionPermitedPart(str_permissionName: Array<String?>?) {}
-        override fun PermissionDenied(str_permissionName: Array<String>) {
+        override fun PermissionDenied(str_permissionName: Array<String?>?) {
             var str_result = "퍼미션 거부 \n"
-            for (i in str_permissionName.indices) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 거부됨 - " + str_permissionName[i])
-                str_result = """
-                $str_result${str_permissionName[i]}
-                
-                """.trimIndent()
+
+            if (str_permissionName != null)
+            {
+                for (i in str_permissionName.indices)
+                {
+                    XELLogUtil.e_function(XELGlobalDefine.TAG, "퍼미션 거부됨 - " + str_permissionName[i])
+                    str_result = """
+                        $str_result${str_permissionName[i]}
+                        
+                        """.trimIndent()
+                }
             }
 
 //            relativeLayout_main.setBackgroundColor(Color.RED);
