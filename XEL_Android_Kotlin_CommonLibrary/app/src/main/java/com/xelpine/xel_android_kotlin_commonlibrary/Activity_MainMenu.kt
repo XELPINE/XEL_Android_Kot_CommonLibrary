@@ -263,8 +263,6 @@ class Activity_MainMenu : XELActivity_Base() {
                     startActivity(intent_startIMAGEFILE_READ)
                 }
             }
-            
-            
         }
     })
 
