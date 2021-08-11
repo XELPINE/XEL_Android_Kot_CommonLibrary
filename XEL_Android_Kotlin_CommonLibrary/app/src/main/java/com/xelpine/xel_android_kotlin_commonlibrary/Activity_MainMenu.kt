@@ -90,6 +90,7 @@ class Activity_MainMenu : XELActivity_Base() {
         rv_main!!.layoutManager = LinearLayoutManager(this)
         rv_main!!.adapter = launchAdapter
 
+        
     }
 
     override fun DisplayLandscapeAfter() {
