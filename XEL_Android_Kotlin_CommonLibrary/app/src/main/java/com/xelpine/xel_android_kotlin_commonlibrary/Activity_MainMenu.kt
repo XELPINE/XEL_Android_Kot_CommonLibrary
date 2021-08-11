@@ -71,6 +71,7 @@ class Activity_MainMenu : XELActivity_Base() {
          */
         setSupportActionBar(toolbar)
 
+
     }
 
     override fun initData() {
