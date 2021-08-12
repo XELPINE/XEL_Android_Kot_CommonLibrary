@@ -1,5 +1,6 @@
 package com.xelpine.xel_android_kotlin_commonlibrary
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,17 +10,23 @@ import android.util.Pair
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELActivity_Base
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.Interface.XELCommonSelectionInterface
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.XELActivity_BottomPopup
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDateUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.*
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Adapter.LaunchAdapter
 import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.LaunchDto
+import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.PopupTestDto
 import java.util.ArrayList
 
 class Activity_MainMenu : XELActivity_Base() {
@@ -117,7 +124,8 @@ class Activity_MainMenu : XELActivity_Base() {
                 "Activity_MainMenu LaunchAdapter onItemClick pos : $position"
             )
 
-            when (position) {
+            when (position)
+            {
                 0 -> XELDialogUtil.Dialog_OkAndCancel(this@Activity_MainMenu,
                     "CommonDlg - 확인, 취소",
                     View.OnClickListener {
@@ -134,6 +142,7 @@ class Activity_MainMenu : XELActivity_Base() {
                             "===== Activity_MainMenu LaunchAdapter onItemClick pos : $position / 취소"
                         )
                     })
+
                 1 -> XELDialogUtil.Dialog_OkOnly(
                     this@Activity_MainMenu,
                     "CommonDlg - 확인",
@@ -145,6 +154,7 @@ class Activity_MainMenu : XELActivity_Base() {
                         )
                     }
                 )
+
                 2 -> XELDialogUtil.Dialog_OkAndCancelText(this@Activity_MainMenu,
                     "CommonDlg - 확인, 취소 이름 변경",
                     "테스트확인",
@@ -163,6 +173,7 @@ class Activity_MainMenu : XELActivity_Base() {
                             "===== Activity_MainMenu LaunchAdapter onItemClick pos : $position / 취소"
                         )
                     })
+
                 3 -> XELDialogUtil.MaterialDialog_OkAndCancelText(this@Activity_MainMenu,
                     "메테리얼 디자인",
                     "CommonDlg - 메테리얼 디자인 (확인, 취소)",
@@ -182,6 +193,7 @@ class Activity_MainMenu : XELActivity_Base() {
                             Toast.LENGTH_SHORT
                         ).show()
                     })
+
                 4 -> XELDialogUtil.MaterialDialog_OkOnlyText(this@Activity_MainMenu,
                     "메테리얼 디자인",
                     "CommonDlg - 메테리얼 디자인 (확인)",
@@ -193,16 +205,19 @@ class Activity_MainMenu : XELActivity_Base() {
                             Toast.LENGTH_SHORT
                         ).show()
                     })
+
                 5 -> {
                     val currentdate: String =
                         XELDateUtil.GetTodayWithFormat(XELDateUtil.DATEUTIL_FORMAT_YYYY_MM_DD)
                     Toast.makeText(this@Activity_MainMenu, currentdate, Toast.LENGTH_SHORT)
                         .show()
                 }
+
                 6 -> {
                     XELDialogUtil.LoadingDialog(this@Activity_MainMenu)
                     XELDialogUtil.closeWait(2000)
                 }
+
                 7 -> {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                        Intent intent_startLaunchAct = new Intent(Activity_MainMenu.this, Activity_Volley.class);
@@ -222,6 +237,7 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startLaunchAct, transitionActivityOptions.toBundle())
                 }
+
                 8 -> {
                     val intent_startGlide =
                         Intent(this@Activity_MainMenu, Activity_Glide::class.java)
@@ -233,16 +249,19 @@ class Activity_MainMenu : XELActivity_Base() {
                         )
                     startActivity(intent_startGlide, transitionActivityOptions_glide.toBundle())
                 }
+
                 9 -> {
                     val intent_startNFC_WRITE =
                         Intent(this@Activity_MainMenu, Activity_NFCWrite::class.java)
                     startActivity(intent_startNFC_WRITE)
                 }
+
                 10 -> {
                     val intent_startNFC_READ =
                         Intent(this@Activity_MainMenu, Activity_NFCRead::class.java)
                     startActivity(intent_startNFC_READ)
                 }
+
                 11 -> {
                     val intent_startFILE_WRITE = Intent(
                         this@Activity_MainMenu,
@@ -250,17 +269,37 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startFILE_WRITE)
                 }
+
                 12 -> {
                     val intent_startFILE_READ =
                         Intent(this@Activity_MainMenu, Activity_FileRead::class.java)
                     startActivity(intent_startFILE_READ)
                 }
+
                 13 -> {
                     val intent_startIMAGEFILE_READ = Intent(
                         this@Activity_MainMenu,
                         Activity_ImageFileRead::class.java
                     )
                     startActivity(intent_startIMAGEFILE_READ)
+                }
+
+                14 ->
+                {
+                    var array_bottomPopup = ArrayList<PopupTestDto>()
+
+                    for (i : Int in 0 until 5)
+                    {
+                        val popupDto = PopupTestDto(""+i, "테스트네임 "+i, null)
+                        array_bottomPopup.add(popupDto)
+                    }
+
+                    val intent_start_XEL_BottomPopup = Intent(this@Activity_MainMenu, XELActivity_BottomPopup::class.java)
+                    intent_start_XEL_BottomPopup.putExtra(XELActivity_BottomPopup.BOTTOMPOPUP_RESULT_TAG, 14)
+                    intent_start_XEL_BottomPopup.putExtra(XELActivity_BottomPopup.BOTTOMPOPUP_VIEW_TITLE, "테스트 타이틀")
+                    intent_start_XEL_BottomPopup.putExtra(XELActivity_BottomPopup.BOTTOMPOPUP_VIEW_LIST, array_bottomPopup)
+
+                    bottomPopupResultLauncher.launch(intent_start_XEL_BottomPopup)
                 }
             }
         }
@@ -335,11 +374,41 @@ class Activity_MainMenu : XELActivity_Base() {
         model_9.menuName = "FILE READ"
         arrayList_launch!!.add(model_9)
 
-        // FILE READ
+        // IMAGE FILE READ
         val model_10 = LaunchDto(null)
         model_10.menuName = "IMAGE FILE READ"
         arrayList_launch!!.add(model_10)
+
+        // XEL Bottom Popup
+        val model_11 = LaunchDto(null)
+        model_11.menuName = "XEL Bottom Popup"
+        arrayList_launch!!.add(model_11)
     }
+
+
+    var bottomPopupResultLauncher : ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+        ActivityResultCallback { result ->
+            if (result.resultCode == Activity.RESULT_OK)
+            {
+
+                // 결과값 태그, 포지션
+                val tag = result.data?.getIntExtra(XELActivity_BottomPopup.BOTTOMPOPUP_RESULT_TAG, -1)
+                val position = result.data?.getIntExtra(XELActivity_BottomPopup.BOTTOMPOPUP_RESULT_POSITION, -1)
+
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "ResultLauncher Data : $position")
+
+                when (tag)
+                {
+                    14 ->
+                    {
+                        Toast.makeText(this, "SELECT POS : " + position, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    )
+
 
     override fun doPause() {
     }

@@ -26,7 +26,20 @@ import java.util.ArrayList
  * 최대 높이가 레이아웃에 설정되어 있으며, 최대 높이 이하는 리스트 높이만큼만 떠오르게 된다.
  * 제네릭을 사용하여 XELCommonSelectionInterface 값을 기준으로 가져오게 된다.
  */
-class XELActivity_BottomPopup : XELActivity_Base() {
+class XELActivity_BottomPopup : XELActivity_Base()
+{
+    companion object
+    {
+        // TAG
+        // 입력
+        const val BOTTOMPOPUP_RESULT_TAG = "BOTTOMPOPUP_RESULT_TAG" // 결과 데이터 태그
+        const val BOTTOMPOPUP_VIEW_TITLE = "BOTTOMPOPUP_VIEW_TITLE" // 타이틀
+        const val BOTTOMPOPUP_VIEW_LIST = "BOTTOMPOPUP_VIEW_LIST" // 팝업에 띄울 리스트
+
+        // 출력
+        const val BOTTOMPOPUP_RESULT_POSITION = "BOTTOMPOPUP_RESULT_POSITION" // 선택한 위치
+    }
+
     // Components
     var xel_activity_bottomPopup_cl_mainLayout: ConstraintLayout? = null
     var xel_activity_bottomPopup_tv_title: TextView? = null
@@ -203,11 +216,5 @@ class XELActivity_BottomPopup : XELActivity_Base() {
         }
     }
 
-    companion object {
-        // TAG
-        const val BOTTOMPOPUP_VIEW_TITLE = "BOTTOMPOPUP_VIEW_TITLE" // 타이틀
-        const val BOTTOMPOPUP_VIEW_LIST = "BOTTOMPOPUP_VIEW_LIST" // 팝업에 띄울 리스트
-        const val BOTTOMPOPUP_RESULT_TAG = "BOTTOMPOPUP_RESULT_TAG" // 결과 데이터 태그
-        const val BOTTOMPOPUP_RESULT_POSITION = "BOTTOMPOPUP_RESULT_POSITION" // 선택한 위치
-    }
+
 }
