@@ -48,7 +48,8 @@
 
                         <LinearLayout
                             android:layout_width="70dip"
-                            android:layout_height="70dip">
+                            android:layout_height="70dip"
+                            android:background="@color/common_cardviewstroke">
 
                             <ImageView
                                 android:id="@+id/iv_title"
@@ -76,18 +77,20 @@
                                 <TextView
                                     android:id="@+id/tv_title1"
                                     android:layout_width="80dip"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?attr/textAppearanceBody1"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="center"
-                                    android:text="타이틀1"/>
+                                    android:text=""
+                                    android:background="@color/common_cardviewstroke"
+                                    android:textAppearance="?attr/textAppearanceBody1" />
 
                                 <TextView
                                     android:id="@+id/tv_desc1"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="?attr/textAppearanceSubtitle2"
                                     android:textColor="?android:attr/textColorSecondary"
-                                    android:text="설명1설명1설명1"
+                                    android:background="@color/common_cardviewstroke"
+                                    android:text=""
                                     android:layout_marginLeft="5dip"/>
 
                             </LinearLayout>
@@ -110,18 +113,20 @@
                                 <TextView
                                     android:id="@+id/tv_title2"
                                     android:layout_width="80dip"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="?attr/textAppearanceBody1"
                                     android:layout_gravity="center"
-                                    android:text="타이틀2"/>
+                                    android:text=""
+                                    android:background="@color/common_cardviewstroke"/>
 
                                 <TextView
                                     android:id="@+id/tv_desc2"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="?attr/textAppearanceSubtitle2"
                                     android:textColor="?android:attr/textColorSecondary"
-                                    android:text="설명2설명2설명2"
+                                    android:text=""
+                                    android:background="@color/common_cardviewstroke"
                                     android:layout_marginLeft="5dip"/>
 
                             </LinearLayout>
@@ -137,7 +142,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="45dip"
                         android:layout_gravity="right"
-                        android:text="이미지 보기"
+                        android:text=""
+                        android:backgroundTint="@color/common_cardviewstroke"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

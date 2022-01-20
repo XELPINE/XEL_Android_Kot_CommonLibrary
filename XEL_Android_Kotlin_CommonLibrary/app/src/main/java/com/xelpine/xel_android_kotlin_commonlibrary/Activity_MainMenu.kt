@@ -22,6 +22,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.XELA
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDateUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELSystemUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.*
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter.LaunchAdapter
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.LaunchDto
@@ -101,9 +102,30 @@ class Activity_MainMenu : XELActivity_Base() {
     }
 
     override fun DisplayLandscapeAfter() {
+
+        // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다. (가로일 때에는 0이다.)
+        rv_main!!.setPadding(0, 0, 0, 0)
+
     }
 
     override fun DisplayPortraitAfter() {
+
+        // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
+        if (XELSystemUtil.isDeviceNotchExist(this))
+        {
+            // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
+            rv_main!!.setPadding(
+                0,
+                0,
+                0,
+                XELSystemUtil.getNavigationBarHeight(this)
+            )
+        }
+        else
+        {
+            rv_main!!.setPadding(0, 0, 0, 0)
+        }
+
     }
 
     override fun initAfterLogic() {

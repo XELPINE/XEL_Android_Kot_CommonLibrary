@@ -1,11 +1,14 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter
 
+import android.content.Context
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.RowActivitySkeletonBinding
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.SkeletonSampleDataDto
 
@@ -13,6 +16,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.SkeletonSam
  * 실사결과 - 라인 리스트 어댑터
  */
 class SkeletonListAdapter(
+    private var context: Context,
     private var itemList: MutableLiveData<ArrayList<SkeletonSampleDataDto>>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
@@ -61,9 +65,16 @@ class SkeletonListAdapter(
         {
             DEFAULT_VIEWTYPE ->
             {
-                val viewHolder_default = viewHolder as AssetDueDiligenceInfoDtoViewHolder
+                val viewHolder_default = viewHolder as SkeletonSampleDataDtoViewHolder
 
                 viewHolder_default.onBind(itemList.value!![position])
+                
+                viewHolder_default.mBinding.ivTitle
+
+                Glide.with(context)
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkRdrlN8_R3h9dj8VA_Q5xuoSmX1YgKSAQWw&usqp=CAU")
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(viewHolder_default.mBinding.ivTitle)
 
 //                // 이미지 보기 버튼
 //                if (TextUtils.isEmpty(model.imagePath))
@@ -110,7 +121,7 @@ class SkeletonListAdapter(
                 val binding = RowActivitySkeletonBinding.inflate(
                     LayoutInflater.from(viewGroup.context), viewGroup, false)
 
-                return AssetDueDiligenceInfoDtoViewHolder(binding)
+                return SkeletonSampleDataDtoViewHolder(binding)
             }
 
             else ->
@@ -118,7 +129,7 @@ class SkeletonListAdapter(
                 val binding = RowActivitySkeletonBinding.inflate(
                     LayoutInflater.from(viewGroup.context), viewGroup, false)
 
-                return AssetDueDiligenceInfoDtoViewHolder(binding)
+                return SkeletonSampleDataDtoViewHolder(binding)
             }
         }
 
@@ -141,7 +152,7 @@ class SkeletonListAdapter(
         return DEFAULT_VIEWTYPE
     }
 
-    inner class AssetDueDiligenceInfoDtoViewHolder(val mBinding : RowActivitySkeletonBinding) : RecyclerView.ViewHolder(mBinding.root)
+    inner class SkeletonSampleDataDtoViewHolder(val mBinding : RowActivitySkeletonBinding) : RecyclerView.ViewHolder(mBinding.root)
     {
         fun onBind(data : SkeletonSampleDataDto)
         {

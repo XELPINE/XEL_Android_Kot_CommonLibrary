@@ -1,6 +1,9 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -10,6 +13,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELAc
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELExtension.notifyObserver
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELHandlerUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELSystemUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivitySkeletonBinding
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter.SkeletonListAdapter
@@ -60,14 +64,14 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
         setSupportActionBar(mBinding.toolbar)
 
         // 타이틀 세팅
-        mBinding.toolbar.title = "자산 현황 조회 결과"
+        mBinding.toolbar.title = "Skeleton Sample"
 
         // 뒤로가기 버튼
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun initData() {
-        skeletonListAdapter = SkeletonListAdapter(mViewModel.skeletonList)
+        skeletonListAdapter = SkeletonListAdapter(this, mViewModel.skeletonList)
 //        skeletonListAdapter.setImageViewerButtonClick(imageViewerButtonClick)
         mBinding.rvList.adapter = skeletonListAdapter
         mBinding.rvList.layoutManager = LinearLayoutManager(this)
@@ -84,14 +88,38 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
     }
 
     override fun DisplayLandscapeAfter() {
+
+        // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다. (가로일 때에는 0이다.)
+        mBinding.rvList.setPadding(0, 0, 0, 0)
+
     }
 
     override fun DisplayPortraitAfter() {
+
+        // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
+        if (XELSystemUtil.isDeviceNotchExist(this))
+        {
+            // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
+            mBinding.rvList.setPadding(
+                0,
+                0,
+                0,
+                XELSystemUtil.getNavigationBarHeight(this)
+            )
+        }
+        else
+        {
+            mBinding.rvList.setPadding(0, 0, 0, 0)
+        }
+
     }
 
     override fun initAfterLogic() {
 
-        XELHandlerUtil.PostDelayed(2000, object : XELHandlerUtil.DelayedCompleteCallback{
+        mBinding.shimmerLayout.startShimmer()
+        mBinding.shimmerLayout.visibility = VISIBLE
+
+        XELHandlerUtil.PostDelayed(5000, object : XELHandlerUtil.DelayedCompleteCallback{
             override fun DelayComplete() {
 
 
@@ -101,6 +129,9 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
 
 
                         mViewModel.skeletonList.notifyObserver()
+
+                        mBinding.shimmerLayout.stopShimmer()
+                        mBinding.shimmerLayout.visibility = GONE
                     }
 
                     override fun CommonDataLoadFailed() {

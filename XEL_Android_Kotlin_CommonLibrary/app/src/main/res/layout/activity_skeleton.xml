@@ -70,6 +70,33 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:clipToPadding="false"/>
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:shimmer_duration="1500"
+            app:shimmer_repeat_delay="0"
+            app:shimmer_direction="left_to_right">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/row_activity_skeleton_shimmer" />
+
+                <include layout="@layout/row_activity_skeleton_shimmer" />
+
+                <include layout="@layout/row_activity_skeleton_shimmer" />
+
+                <include layout="@layout/row_activity_skeleton_shimmer" />
+
+                <include layout="@layout/row_activity_skeleton_shimmer" />
+
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
