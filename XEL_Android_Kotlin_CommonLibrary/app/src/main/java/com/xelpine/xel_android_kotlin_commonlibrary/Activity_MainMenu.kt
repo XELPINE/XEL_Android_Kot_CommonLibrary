@@ -18,15 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELActivity_Base
-import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.Interface.XELCommonSelectionInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.XELActivity_BottomPopup
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDateUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
-import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.*
-import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Adapter.LaunchAdapter
-import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.LaunchDto
-import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.PopupTestDto
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.*
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter.LaunchAdapter
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.LaunchDto
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.PopupTestDto
 import java.util.ArrayList
 
 class Activity_MainMenu : XELActivity_Base() {
@@ -301,6 +300,14 @@ class Activity_MainMenu : XELActivity_Base() {
 
                     bottomPopupResultLauncher.launch(intent_start_XEL_BottomPopup)
                 }
+
+                15 -> {
+                    val intent_startSkeleton = Intent(
+                        this@Activity_MainMenu,
+                        Activity_Skeleton::class.java
+                    )
+                    startActivity(intent_startSkeleton)
+                }
             }
         }
     })
@@ -383,6 +390,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_11 = LaunchDto(null)
         model_11.menuName = "XEL Bottom Popup"
         arrayList_launch!!.add(model_11)
+
+        // Skeleton
+        val model_12 = LaunchDto(null)
+        model_12.menuName = "Skeleton Sample"
+        arrayList_launch!!.add(model_12)
     }
 
 

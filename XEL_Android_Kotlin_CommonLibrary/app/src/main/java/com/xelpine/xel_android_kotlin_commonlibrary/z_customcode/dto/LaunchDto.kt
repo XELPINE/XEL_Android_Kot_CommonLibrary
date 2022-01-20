@@ -1,4 +1,4 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto
+package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto
 
 data class LaunchDto (
     var menuName: String?

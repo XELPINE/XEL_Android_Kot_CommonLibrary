@@ -1,9 +1,8 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode
+package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.PendingIntent
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.IntentFilter.MalformedMimeTypeException
@@ -11,7 +10,6 @@ import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.os.Bundle
-import android.os.Parcelable
 import android.provider.Settings
 import android.util.Log
 import android.view.View

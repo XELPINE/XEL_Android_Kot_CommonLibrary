@@ -48,25 +48,28 @@
         <activity android:name=".Activity_MainMenu">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_Volley">
+        <activity android:name=".z_customcode.Activity_Volley">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_Glide">
+        <activity android:name=".z_customcode.Activity_Glide">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_NFCWrite">
+        <activity android:name=".z_customcode.Activity_NFCWrite">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_NFCRead">
+        <activity android:name=".z_customcode.Activity_NFCRead">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_FileWrite">
+        <activity android:name=".z_customcode.Activity_FileWrite">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_FileRead">
+        <activity android:name=".z_customcode.Activity_FileRead">
         </activity>
 
-        <activity android:name=".Z_CustomCode.Activity_ImageFileRead">
+        <activity android:name=".z_customcode.Activity_ImageFileRead">
+        </activity>
+
+        <activity android:name=".z_customcode.Activity_Skeleton">
         </activity>
     </application>
 

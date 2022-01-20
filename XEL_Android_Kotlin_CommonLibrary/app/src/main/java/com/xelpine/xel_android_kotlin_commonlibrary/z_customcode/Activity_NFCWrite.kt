@@ -1,4 +1,4 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode
+package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
 import android.app.PendingIntent
 import android.content.Intent

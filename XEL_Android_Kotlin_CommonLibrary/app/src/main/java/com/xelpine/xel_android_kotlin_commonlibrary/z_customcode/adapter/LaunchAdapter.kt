@@ -1,4 +1,4 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Adapter
+package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
-import com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto.LaunchDto
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.LaunchDto
 import java.util.ArrayList
 
 class LaunchAdapter (var launchList : ArrayList<LaunchDto>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>()

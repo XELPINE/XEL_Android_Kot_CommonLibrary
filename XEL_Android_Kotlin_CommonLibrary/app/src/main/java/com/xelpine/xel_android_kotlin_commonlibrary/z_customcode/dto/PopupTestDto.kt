@@ -1,4 +1,4 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.Z_CustomCode.Dto
+package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto
 
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELActivity.Interface.XELCommonSelectionInterface
 import java.io.Serializable
