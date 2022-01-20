@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="rowSkeletonSampleDataDtoViewModel"
+            type="com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.SkeletonSampleDataDto" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="@dimen/xel_cardview_outerpadding">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/row_activity_DueDiligenceResultLine_mcv_mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="@dimen/xel_cardview_cornerradius"
+            app:contentPadding="@dimen/xel_cardview_contentspadding"
+            app:cardElevation="@dimen/cardview_default_elevation"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 내부 레이아웃 전체 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="70dip"
+                            android:layout_height="70dip">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+
+                            <!-- 자산구분 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_title1"
+                                    android:layout_width="80dip"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?attr/textAppearanceBody1"
+                                    android:layout_gravity="center"
+                                    android:text="타이틀1"/>
+
+                                <TextView
+                                    android:id="@+id/tv_desc1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                                    android:textColor="?android:attr/textColorSecondary"
+                                    android:text=""/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dip"
+                                android:background="@color/common_lightgray_nightmode"
+                                android:layout_marginTop="@dimen/xel_cardview_innerinterval_samegrade"
+                                android:layout_marginBottom="@dimen/xel_cardview_innerinterval_samegrade"
+                                android:layout_marginLeft="80dip"/>
+
+                            <!-- 자산명 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_title2"
+                                    android:layout_width="80dip"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?attr/textAppearanceBody1"
+                                    android:layout_gravity="center"
+                                    android:text="타이틀2"/>
+
+                                <TextView
+                                    android:id="@+id/tv_desc2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                                    android:textColor="?android:attr/textColorSecondary"
+                                    android:text=""/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_1"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dip"
+                        android:layout_gravity="right"
+                        android:text="이미지 보기"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

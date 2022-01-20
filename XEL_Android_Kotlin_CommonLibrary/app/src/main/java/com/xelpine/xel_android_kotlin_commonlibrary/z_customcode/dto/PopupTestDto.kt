@@ -19,4 +19,8 @@ data class PopupTestDto (
     override fun Name(): String {
         return popupName
     }
+
+    override fun NameWithSelector(): String {
+        TODO("Not yet implemented")
+    }
 }

@@ -16,8 +16,11 @@ import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.callback.CommonDataLoadCallback
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.SkeletonSampleDataDto
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.SkeletonInterface
 import java.io.File
+import java.lang.Exception
 
 /**
  * 뷰모델 - 자산 실사 헤더
@@ -59,10 +62,7 @@ class ViewModel_Skeleton (
 //        constructor() : this (MutableLiveData(null), MutableLiveData(null), MutableLiveData(null),MutableLiveData(null), MutableLiveData(null), MutableLiveData(null), MutableLiveData(null), MutableLiveData(null))
 //    }
 //
-//    var commonDataInfo : MutableLiveData<CommonDataInfo> = MutableLiveData(CommonDataInfo())
-//    var assetDataInfo : MutableLiveData<AssetDataInfo> = MutableLiveData(AssetDataInfo())
-//
-//    var imageUri: Uri? = null
+    var skeletonList : MutableLiveData<ArrayList<SkeletonSampleDataDto>> = MutableLiveData(ArrayList())
 //
 //    @JvmField
 //    var selectedLocation : MutableLiveData<CommonLocation> = MutableLiveData()
@@ -74,23 +74,27 @@ class ViewModel_Skeleton (
 //
 //
 //
-//    fun CommonDataInfoInit (callback: FileLoadCallback)
-//    {
-//        if (XELGlobalDefine.TEST_MODE)
-//        {
-//            commonDataInfo.value?.location?.value = CommonLocation("TEST_CODE_3", "상단_테스트장소")
-//            commonDataInfo.value?.dept?.value = CommonDept("TEST_CODE_4", "상단_실사부서")
-//            commonDataInfo.value?.allAssetQty?.value = 10.0
-//            commonDataInfo.value?.processAssetQty?.value = 20.0
-//            commonDataInfo.value?.notStartAssetQty?.value = 30.0
-//
-//            callback.FileLoadSuccess()
-//        }
-//        else
-//        {
-//            callback.FileLoadError("[자산 실사 - 헤더] 파일 로드 에러")
-//        }
-//    }
+    fun CommonDataInfoInit (callback: CommonDataLoadCallback)
+    {
+        try {
+
+            skeletonList.value?.clear()
+
+            for (i in 0 .. 20)
+            {
+                var skeletonDto : SkeletonSampleDataDto = SkeletonSampleDataDto("Title $i", "Desc $i")
+
+                skeletonList.value?.add(skeletonDto)
+            }
+
+            callback.CommonDataLoadSuccess()
+        }
+        catch (e : Exception)
+        {
+
+            callback.CommonDataLoadFailed()
+        }
+    }
 //
 //    fun AssetDataInfoInit (callback: FileLoadCallback)
 //    {

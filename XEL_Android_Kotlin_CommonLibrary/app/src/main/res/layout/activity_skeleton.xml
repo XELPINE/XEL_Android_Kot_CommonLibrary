@@ -37,7 +37,7 @@
                 android:fitsSystemWindows="false">
 
                 <ImageView
-                    android:id="@+id/imageView_list"
+                    android:id="@+id/toolbarTitleImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_collapseMode="parallax"
@@ -64,7 +64,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/activity_DueDiligenceResultLine_rv_assetDueDiligenceList"
+            android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
