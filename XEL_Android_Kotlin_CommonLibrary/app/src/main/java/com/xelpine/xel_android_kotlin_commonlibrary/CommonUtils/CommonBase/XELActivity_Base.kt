@@ -363,9 +363,12 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
         doResume()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.home -> {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        return when (item.itemId)
+        {
+            android.R.id.home ->
+            {
                 // todo: goto back activity from here
                 finish()
                 true
