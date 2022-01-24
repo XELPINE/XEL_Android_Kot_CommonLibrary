@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.transition.Slide
 import android.view.Gravity
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.android.volley.Request
@@ -24,6 +25,7 @@ class Activity_Volley : XELActivity_Base() {
     private var textView_tag_1_data: TextView? = null
     private var textView_tag_2_tag: TextView? = null
     private var textView_tag_2_data: TextView? = null
+    private var imageView_volley: ImageView? = null
 
 
 
@@ -62,6 +64,7 @@ class Activity_Volley : XELActivity_Base() {
         textView_tag_1_data = findViewById(R.id.textView_tag_1_data) as TextView
         textView_tag_2_tag = findViewById(R.id.textView_tag_2_tag) as TextView
         textView_tag_2_data = findViewById(R.id.textView_tag_2_data) as TextView
+        imageView_volley = findViewById(R.id.imageView_volley) as ImageView
     }
 
     override fun initData() {}
@@ -117,6 +120,8 @@ class Activity_Volley : XELActivity_Base() {
         // (번외) 취소를 원하는 경우 태그를 이용해 취소하는 것이 좋다.
 //		SingleTon.getInstance(this).getRequestQueue().cancelAll("TAG_2");
         /** StringRequest 끝  */
+
+        imageView_volley?.setImageResource(R.mipmap.test_icon)
     }
 
     override fun onDataResponseSucess(tag: String, data: String) {
