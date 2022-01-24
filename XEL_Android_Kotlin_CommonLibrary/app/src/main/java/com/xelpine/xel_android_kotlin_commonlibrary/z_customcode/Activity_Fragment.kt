@@ -1,6 +1,8 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELActivity_Base
@@ -11,7 +13,14 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.tovie
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Fragment
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Skeleton
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Fragment
-import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Skeleton
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+
+
+
+
 
 class Activity_Fragment : XELActivity_Base(), FragmentInterface
 {
@@ -52,6 +61,35 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
 
         // 뒤로가기 버튼
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+
+        mBinding.btn1.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "BTN 1 클릭")
+
+                val frag1 : Fragment_Test1 = Fragment_Test1()
+
+                //1.매니저 생성
+                val fragmentManager: FragmentManager = supportFragmentManager
+                //2.시작
+                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                //3.추가, 삭제, 교체
+                fragmentTransaction.replace(mBinding.llFragmentMain.id, frag1)
+                //4.수행
+                fragmentTransaction.commit()
+
+
+//                val fragmentManager =supportFragmentManager //매니저생성
+
+//                val fragmentTransaction = fragmentManager.beginTransaction() //시작
+
+//                fragmentTransaction.replace(, chgFragment) //교체
+//
+//                fragmentTransaction.commit() //실행
+
+            }
+        })
     }
 
     override fun initData() {

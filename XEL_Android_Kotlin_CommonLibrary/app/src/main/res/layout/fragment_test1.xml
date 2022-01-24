@@ -3,14 +3,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
-            name="framgentViewModel"
+            name="framgentTest1ViewModel"
             type="com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Fragment" />
 
     </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
@@ -59,22 +57,12 @@
 
 
         </com.google.android.material.appbar.AppBarLayout>
-        <Button
-            android:id="@+id/btn_1"
-            android:layout_width="60dip"
-            android:layout_height="50dip"
-            android:layout_gravity="center_horizontal"
-            android:text="btn 1">
 
-        </Button>
         <LinearLayout
-            android:id="@+id/ll_fragmentMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:background="@color/common_black_only">
 
         </LinearLayout>
 
