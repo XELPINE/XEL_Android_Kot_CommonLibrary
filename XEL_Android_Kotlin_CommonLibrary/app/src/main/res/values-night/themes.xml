@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.XEL_Android_CommonLibrary" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/duzonColor</item>
+        <item name="colorPrimary">@color/mainColor</item>
         <item name="colorPrimaryVariant">@color/purple_200</item>
         <item name="colorOnPrimary">@color/common_black_only</item>
         <!-- Secondary brand color. -->

@@ -260,7 +260,7 @@ object XELSystemUtil {
         onClickListener_right: BannerInterface.OnClickListener?
     ) {
         banner.setIcon(iconId)
-        banner.setIconTintColor(R.color.duzonColor)
+        banner.setIconTintColor(R.color.mainColor)
         //        banner.setBackgroundColor(context.getResources().getColor(R.color.duzonColor_50pertransparent));
         banner.setMessage(message)
         banner.setLeftButton(leftButtonTitle, onClickListener_left)

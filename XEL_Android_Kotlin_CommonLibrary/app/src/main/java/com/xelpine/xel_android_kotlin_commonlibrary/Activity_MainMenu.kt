@@ -330,6 +330,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startSkeleton)
                 }
+
+                16 -> {
+                    val intent_startFragment = Intent(
+                        this@Activity_MainMenu,
+                        Activity_Fragment::class.java
+                    )
+                    startActivity(intent_startFragment)
+                }
             }
         }
     })
@@ -417,6 +425,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_12 = LaunchDto(null)
         model_12.menuName = "Skeleton Sample"
         arrayList_launch!!.add(model_12)
+
+        // Fragment
+        val model_13 = LaunchDto(null)
+        model_13.menuName = "Fragment"
+        arrayList_launch!!.add(model_13)
     }
 
 

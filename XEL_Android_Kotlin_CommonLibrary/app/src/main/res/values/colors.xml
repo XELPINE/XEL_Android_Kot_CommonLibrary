@@ -18,8 +18,8 @@
     <color name="common_transparent">#00000000</color>
     <color name="common_white_background_nightmode">#ffffff</color>
 
-    <color name="duzonColor">#1c90fb</color>
-    <color name="duzonColor_50pertransparent">#b0e2ff</color>
+    <color name="mainColor">#1c90fb</color>
+    <color name="mainColor_50pertransparent">#b0e2ff</color>
 
     <!-- Line Colors -->
     <color name="LineCol1">#c8c8c8</color>
