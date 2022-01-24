@@ -109,7 +109,15 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
         }
         else
         {
-            mBinding.rvList.setPadding(0, 0, 0, 0)
+            // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
+            mBinding.rvList.setPadding(
+                0,
+                0,
+                0,
+                XELSystemUtil.getNavigationBarHeight(this)
+            )
+
+//            mBinding.rvList.setPadding(0, 0, 0, 0)
         }
 
     }
