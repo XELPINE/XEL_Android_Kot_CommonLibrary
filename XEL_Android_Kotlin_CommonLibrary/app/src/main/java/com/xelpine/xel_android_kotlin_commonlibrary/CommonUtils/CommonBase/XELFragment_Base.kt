@@ -11,11 +11,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELVolleyUtils.XELVolleyUtil
+import java.lang.Exception
 
 /**
  * 베이스 프래그먼트.
  */
-abstract class XELFragment_Base : Fragment()
+abstract class XELFragment_Base : Fragment(), XELVolleyUtil.XELVolleyResponseInterface
 {
     /**
      * onCreate() 최상단에서 처리가 필요한 경우 사용. (ex : 윈도우 속성 변경 등..)
@@ -104,6 +106,12 @@ abstract class XELFragment_Base : Fragment()
 
         return view
     }
+
+    override fun onDataResponseSucess(tag: String, data: String) {}
+
+    override fun onDataResponseError(tag: String, errorCode: Int) {}
+
+    override fun onDataException(e: Exception) {}
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
