@@ -51,45 +51,56 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
     }
 
     override fun initLayout() {
-        /**
-         * 기본세팅
-         */
-        setSupportActionBar(mBinding.toolbar)
-
-        // 타이틀 세팅
-        mBinding.toolbar.title = "Fragment Sample"
-
-        // 뒤로가기 버튼
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-
-        mBinding.btn1.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-
-                XELLogUtil.d_function(XELGlobalDefine.TAG, "BTN 1 클릭")
-
-                val frag1 : Fragment_Test1 = Fragment_Test1()
-
-                //1.매니저 생성
-                val fragmentManager: FragmentManager = supportFragmentManager
-                //2.시작
-                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                //3.추가, 삭제, 교체
-                fragmentTransaction.replace(mBinding.llFragmentMain.id, frag1)
-                //4.수행
-                fragmentTransaction.commit()
-
-
-//                val fragmentManager =supportFragmentManager //매니저생성
-
-//                val fragmentTransaction = fragmentManager.beginTransaction() //시작
-
-//                fragmentTransaction.replace(, chgFragment) //교체
+//        /**
+//         * 기본세팅
+//         */
+//        setSupportActionBar(mBinding.toolbar)
 //
-//                fragmentTransaction.commit() //실행
+//        // 타이틀 세팅
+//        mBinding.toolbar.title = "Fragment Sample"
 
-            }
-        })
+//        // 뒤로가기 버튼
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+
+//        mBinding.btn1.setOnClickListener(object : View.OnClickListener{
+//            override fun onClick(v: View?) {
+//
+//                XELLogUtil.d_function(XELGlobalDefine.TAG, "BTN 1 클릭")
+//
+//                val frag1 : Fragment_Test1 = Fragment_Test1()
+//
+//                //1.매니저 생성
+//                val fragmentManager: FragmentManager = supportFragmentManager
+//                //2.시작
+//                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+//                //3.추가, 삭제, 교체
+//                fragmentTransaction.replace(mBinding.llFragmentMain.id, frag1)
+//                //4.수행
+//                fragmentTransaction.commit()
+//
+//
+////                val fragmentManager =supportFragmentManager //매니저생성
+//
+////                val fragmentTransaction = fragmentManager.beginTransaction() //시작
+//
+////                fragmentTransaction.replace(, chgFragment) //교체
+////
+////                fragmentTransaction.commit() //실행
+//
+//            }
+//        })
+
+        val frag1 : Fragment_Test1 = Fragment_Test1()
+
+        //1.매니저 생성
+        val fragmentManager: FragmentManager = supportFragmentManager
+        //2.시작
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        //3.추가, 삭제, 교체
+        fragmentTransaction.replace(mBinding.llFragmentMain.id, frag1)
+        //4.수행
+        fragmentTransaction.commit()
     }
 
     override fun initData() {
