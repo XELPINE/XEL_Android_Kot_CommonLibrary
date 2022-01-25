@@ -75,9 +75,9 @@ class Activity_Glide : XELActivity_Base() {
             .into(imageView4!!)
     }
 
-    protected override fun DisplayLandscapeAfter() {}
+    protected override fun displayLandscapeAfter() {}
 
-    protected override fun DisplayPortraitAfter() {}
+    protected override fun displayPortraitAfter() {}
 
     protected override fun initAfterLogic() {}
 

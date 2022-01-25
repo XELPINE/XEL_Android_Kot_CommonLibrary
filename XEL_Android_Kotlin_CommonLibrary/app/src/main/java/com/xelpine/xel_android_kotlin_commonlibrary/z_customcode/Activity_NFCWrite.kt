@@ -78,9 +78,9 @@ class Activity_NFCWrite : XELActivity_Base()
         }
     }
 
-    protected override fun DisplayLandscapeAfter() {}
+    protected override fun displayLandscapeAfter() {}
 
-    protected override fun DisplayPortraitAfter() {}
+    protected override fun displayPortraitAfter() {}
 
     protected override fun initAfterLogic() {
 

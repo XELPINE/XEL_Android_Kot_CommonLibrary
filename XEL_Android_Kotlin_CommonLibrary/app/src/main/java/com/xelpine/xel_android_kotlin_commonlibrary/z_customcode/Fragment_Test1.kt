@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELFragment_Base
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityFragmentBinding
@@ -25,7 +26,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewm
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Fragment
 
 
-class Fragment_Test1 : Fragment(), Frag1Interface
+class Fragment_Test1 : XELFragment_Base(), Frag1Interface
 {
     // DataBinding
     private lateinit var mBinding: FragmentTest1Binding
@@ -35,11 +36,9 @@ class Fragment_Test1 : Fragment(), Frag1Interface
 
     // Adapter
     lateinit var frag1ListAdapter : Frag1ListAdapter
-    
-    
-    
 
-    override fun onCreateView(
+
+    override fun doCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,17 +47,8 @@ class Fragment_Test1 : Fragment(), Frag1Interface
         // 데이터 바인딩
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_test1, container, false)
 
-//        mBinding.lifecycleOwner = this
-//        mBinding.framgentTest1ViewModel = mViewModel
 
 
-
-
-        //fragment_two 가져오기
-//        val view: View = inflater.inflate(R.layout.fragment_test1, null)
-
-//        return super.onCreateView(inflater, container, savedInstanceState)
-        
         mViewModel.CommonDataInfoInit(object : CommonDataLoadCallback{
             override fun CommonDataLoadSuccess() {
             }
@@ -83,5 +73,23 @@ class Fragment_Test1 : Fragment(), Frag1Interface
         })
 
         return mBinding.root
+
+    }
+
+    override fun initLayout() {
+    }
+
+    override fun initData() {
+    }
+
+    override fun displayLandscapeAfter() {
+
+    }
+
+    override fun displayPortraitAfter() {
+
+    }
+
+    override fun initAfterLogic() {
     }
 }

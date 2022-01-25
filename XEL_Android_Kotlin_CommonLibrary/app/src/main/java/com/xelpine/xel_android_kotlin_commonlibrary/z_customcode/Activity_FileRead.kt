@@ -42,9 +42,9 @@ class Activity_FileRead : XELActivity_Base ()
 
     protected override fun initData() {}
 
-    protected override fun DisplayLandscapeAfter() {}
+    protected override fun displayLandscapeAfter() {}
 
-    protected override fun DisplayPortraitAfter() {}
+    protected override fun displayPortraitAfter() {}
 
     protected override fun initAfterLogic() {
         readFromFile("/", "XEL_Sample.txt")

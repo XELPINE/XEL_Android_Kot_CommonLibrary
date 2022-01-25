@@ -132,8 +132,8 @@ class XELPermissionActivity : XELActivity_Base() {
 
     protected override fun initLayout() {}
     protected override fun initData() {}
-    protected override fun DisplayLandscapeAfter() {}
-    protected override fun DisplayPortraitAfter() {}
+    protected override fun displayLandscapeAfter() {}
+    protected override fun displayPortraitAfter() {}
     protected override fun initAfterLogic() {}
     protected override fun doPause() {}
     protected override fun doResume() {}

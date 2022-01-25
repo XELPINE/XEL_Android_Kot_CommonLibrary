@@ -50,9 +50,9 @@ class Activity_ImageFileRead : XELActivity_Base(){
 
     override fun initData() {}
 
-    override fun DisplayLandscapeAfter() {}
+    override fun displayLandscapeAfter() {}
 
-    override fun DisplayPortraitAfter() {}
+    override fun displayPortraitAfter() {}
 
     override fun initAfterLogic() {
 //        imagefileread_iv_1.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher_foreground));

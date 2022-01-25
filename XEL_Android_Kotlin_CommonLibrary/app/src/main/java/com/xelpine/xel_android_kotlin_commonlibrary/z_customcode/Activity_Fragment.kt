@@ -106,10 +106,10 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
     override fun initData() {
     }
 
-    override fun DisplayLandscapeAfter() {
+    override fun displayLandscapeAfter() {
     }
 
-    override fun DisplayPortraitAfter() {
+    override fun displayPortraitAfter() {
     }
 
     override fun initAfterLogic() {

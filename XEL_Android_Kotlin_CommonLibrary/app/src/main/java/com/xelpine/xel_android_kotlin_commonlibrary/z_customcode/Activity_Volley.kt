@@ -69,9 +69,9 @@ class Activity_Volley : XELActivity_Base() {
 
     override fun initData() {}
 
-    override fun DisplayLandscapeAfter() {}
+    override fun displayLandscapeAfter() {}
 
-    override fun DisplayPortraitAfter() {}
+    override fun displayPortraitAfter() {}
 
     override fun initAfterLogic() {
 

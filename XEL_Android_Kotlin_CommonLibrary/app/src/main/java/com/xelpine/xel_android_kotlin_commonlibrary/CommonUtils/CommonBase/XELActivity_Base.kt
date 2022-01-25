@@ -154,11 +154,6 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
     protected abstract fun initLayout()
 
     /**
-     * initLayout 후 공통적으로 조절되어야 할 내역
-     */
-    protected fun initLayoutAfter() {}
-
-    /**
      * 뷰가 윈도우에 연결될 때 호출된다.
      * 그리기 시작하기 가능한 경우부터 이 메소드가 불린다.
      */
@@ -168,7 +163,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
         val config = r.configuration
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             XELLogUtil.d_function(XELGlobalDefine.TAG, "onAttachedToWindow ORIENTATION_LANDSCAPE")
-            DisplayLandscapeAfter()
+            displayLandscapeAfter()
 
             // 가로모드
             try {
@@ -184,7 +179,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
             }
         } else {
             XELLogUtil.d_function(XELGlobalDefine.TAG, "onAttachedToWindow ORIENTATION_PORTRAIT")
-            DisplayPortraitAfter()
+            displayPortraitAfter()
 
             // 세로모드
             try {
@@ -206,12 +201,12 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
     /**
      * 화면이 가로로 변했을 때 (진입 시, 진입 후 화면 전환 시 모두 다)
      */
-    protected abstract fun DisplayLandscapeAfter()
+    protected abstract fun displayLandscapeAfter()
 
     /**
      * 화면이 세로로 변했을 때 할 작업 (진입 시, 진입 후 화면 전환 시 모두 다)
      */
-    protected abstract fun DisplayPortraitAfter()
+    protected abstract fun displayPortraitAfter()
 
     /**
      * onCreate의 모든 초기화 종료 후 추가 로직
@@ -280,9 +275,6 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // 5
             initLayout()
-
-            // 5-1
-            initLayoutAfter()
 
             // 6
             initData()
@@ -545,7 +537,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
         when (newConfig.orientation) {
             Configuration.ORIENTATION_LANDSCAPE ->
             {
-                DisplayLandscapeAfter()
+                displayLandscapeAfter()
 
                 try {
                     if (XELSystemUtil.isDeviceNotchExist(this)) {
@@ -562,7 +554,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             Configuration.ORIENTATION_PORTRAIT ->
             {
-                DisplayPortraitAfter()
+                displayPortraitAfter()
 
                 try {
                     if (XELSystemUtil.isDeviceNotchExist(this))

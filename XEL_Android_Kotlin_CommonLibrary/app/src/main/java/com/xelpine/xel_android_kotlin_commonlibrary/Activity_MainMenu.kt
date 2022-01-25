@@ -101,14 +101,14 @@ class Activity_MainMenu : XELActivity_Base() {
         
     }
 
-    override fun DisplayLandscapeAfter() {
+    override fun displayLandscapeAfter() {
 
         // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다. (가로일 때에는 0이다.)
         rv_main!!.setPadding(0, 0, 0, 0)
 
     }
 
-    override fun DisplayPortraitAfter() {
+    override fun displayPortraitAfter() {
 
         // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
         if (XELSystemUtil.isDeviceNotchExist(this))
