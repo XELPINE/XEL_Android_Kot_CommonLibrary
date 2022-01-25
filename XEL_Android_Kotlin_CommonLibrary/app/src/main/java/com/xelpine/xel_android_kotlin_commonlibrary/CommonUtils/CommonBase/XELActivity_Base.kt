@@ -163,6 +163,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
         val config = r.configuration
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             XELLogUtil.d_function(XELGlobalDefine.TAG, "onAttachedToWindow ORIENTATION_LANDSCAPE")
+
             displayLandscapeAfter()
 
             // 가로모드
@@ -179,6 +180,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
             }
         } else {
             XELLogUtil.d_function(XELGlobalDefine.TAG, "onAttachedToWindow ORIENTATION_PORTRAIT")
+
             displayPortraitAfter()
 
             // 세로모드

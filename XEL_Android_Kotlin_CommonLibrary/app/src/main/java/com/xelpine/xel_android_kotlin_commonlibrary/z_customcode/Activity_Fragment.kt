@@ -51,16 +51,16 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
     }
 
     override fun initLayout() {
-//        /**
-//         * 기본세팅
-//         */
-//        setSupportActionBar(mBinding.toolbar)
-//
-//        // 타이틀 세팅
-//        mBinding.toolbar.title = "Fragment Sample"
+        /**
+         * 기본세팅
+         */
+        setSupportActionBar(mBinding.toolbar)
 
-//        // 뒤로가기 버튼
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        // 타이틀 세팅
+        mBinding.toolbar.title = "Fragment Sample"
+
+        // 뒤로가기 버튼
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
 
 //        mBinding.btn1.setOnClickListener(object : View.OnClickListener{
