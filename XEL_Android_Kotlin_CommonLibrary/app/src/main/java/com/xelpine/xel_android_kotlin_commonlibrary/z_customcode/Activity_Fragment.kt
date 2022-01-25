@@ -2,6 +2,9 @@ package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Slide
+import android.view.Gravity
 import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -15,6 +18,8 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewm
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 
@@ -44,6 +49,14 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
     }
 
     override fun setWindowTransitions() {
+        val slide = Slide()
+        slide.duration = 300
+        slide.slideEdge = Gravity.RIGHT
+//        slide.interpolator = LinearOutSlowInInterpolator()
+
+        val explode = Explode()
+        explode.duration = 300
+        window.enterTransition = slide
     }
 
     override fun setNFCReadMode(): NFCReadMode? {

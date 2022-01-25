@@ -1,9 +1,7 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -16,7 +14,9 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplicatio
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELFragment_Base
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELDialogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELHandlerUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELSystemUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELVolleyUtils.XELVolleyUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityFragmentBinding
@@ -83,6 +83,9 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
     }
 
     override fun initLayout() {
+
+        mBinding.frag1Iv.setImageResource(R.mipmap.test_icon)
+
     }
 
     override fun initData() {
@@ -90,9 +93,65 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
 
     override fun displayLandscapeAfter() {
 
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "displayLandscapeAfter")
+
+        // Fragment의 경우에는, 이 경우 dataBinding이 끝나지 않은 채로 진입되는 경우가 있다.
+        // 주로 onAttach 단계에서 발생하며, 재귀함수를 통하여 0.5초 뒤 다시 해당 코드를 실행하도록 한다.
+        try {
+            mBinding.rvList.setPadding(0, 0, 0, 0)
+        }
+        catch (e : Exception)
+        {
+            XELHandlerUtil.PostDelayed(500, object  : XELHandlerUtil.DelayedCompleteCallback{
+                override fun DelayComplete() {
+
+                    displayLandscapeAfter()
+                }
+            })
+
+        }
+
+
+
     }
 
     override fun displayPortraitAfter() {
+
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "displayPortraitAfter")
+
+        // Fragment의 경우에는, 이 경우 dataBinding이 끝나지 않은 채로 진입되는 경우가 있다.
+        // 주로 onAttach 단계에서 발생하며, 재귀함수를 통하여 0.5초 뒤 다시 해당 코드를 실행하도록 한다.
+        try {
+
+            if (XELSystemUtil.hasNavBar(resources))
+            {
+                // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
+                mBinding.rvList.setPadding(
+                    0,
+                    0,
+                    0,
+                    XELSystemUtil.getNavigationBarHeight(requireContext())
+                )
+            }
+            else
+            {
+                mBinding.rvList.setPadding(0, 0, 0, 0)
+            }
+
+
+        }
+        catch (e : Exception)
+        {
+            XELHandlerUtil.PostDelayed(500, object  : XELHandlerUtil.DelayedCompleteCallback{
+                override fun DelayComplete() {
+
+                    displayPortraitAfter()
+                }
+            })
+
+        }
+
+
 
     }
 

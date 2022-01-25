@@ -96,29 +96,13 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
 
     override fun displayPortraitAfter() {
 
-        // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
-        if (XELSystemUtil.isDeviceNotchExist(this))
-        {
-            // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
-            mBinding.rvList.setPadding(
-                0,
-                0,
-                0,
-                XELSystemUtil.getNavigationBarHeight(this)
-            )
-        }
-        else
-        {
-            // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
-            mBinding.rvList.setPadding(
-                0,
-                0,
-                0,
-                XELSystemUtil.getNavigationBarHeight(this)
-            )
-
-//            mBinding.rvList.setPadding(0, 0, 0, 0)
-        }
+        // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
+        mBinding.rvList.setPadding(
+            0,
+            0,
+            0,
+            XELSystemUtil.getNavigationBarHeight(this)
+        )
 
     }
 

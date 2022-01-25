@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Build
 import android.os.Build.VERSION
 import android.view.DisplayCutout
@@ -19,6 +20,9 @@ import com.sergivonavi.materialbanner.Banner
 import com.sergivonavi.materialbanner.BannerInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.R
+import android.view.KeyCharacterMap
+import android.view.KeyEvent
+
 
 object XELSystemUtil {
     /**
@@ -66,6 +70,31 @@ object XELSystemUtil {
             }
         }
         return false
+    }
+
+    /**
+     * 내비게이션 바가 현재 화면에 보이는 지를 체크.
+     * 정확하진 않다..
+     */
+    fun hasNavBar(resources: Resources): Boolean {
+//        val id: Int = resources.getIdentifier("config_showNavigationBar", "bool", "android")
+//        XELLogUtil.d_function(XELGlobalDefine.TAG, "hasNavBar (내비게이션 바 존재유무) : " + (id > 0 && resources.getBoolean(id)))
+//        return id > 0 && resources.getBoolean(id)
+
+        val useSoftNavigation: Boolean
+        val id: Int = resources.getIdentifier("config_showNavigationBar", "bool", "android")
+        useSoftNavigation = if (id > 0) {
+            resources.getBoolean(id)
+        } else {
+            val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+            val hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME)
+
+            !(hasBackKey && hasHomeKey)
+        }
+
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "hasNavBar (내비게이션 바 존재유무) : " + useSoftNavigation)
+
+        return useSoftNavigation
     }
 
     /**

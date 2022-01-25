@@ -10,11 +10,24 @@
 
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:clipToPadding="false"/>
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/frag1_iv"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:transitionName="@string/testMoveTransition"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:clipToPadding="false"/>
+
+    </LinearLayout>
 </layout>

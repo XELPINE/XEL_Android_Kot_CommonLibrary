@@ -28,6 +28,12 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.adapter.LaunchA
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.LaunchDto
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.PopupTestDto
 import java.util.ArrayList
+import androidx.core.app.ActivityCompat
+
+import androidx.core.app.ActivityOptionsCompat
+
+
+
 
 class Activity_MainMenu : XELActivity_Base() {
 
@@ -332,11 +338,21 @@ class Activity_MainMenu : XELActivity_Base() {
                 }
 
                 16 -> {
-                    val intent_startFragment = Intent(
+//                    val intent_startFragment = Intent(
+//                        this@Activity_MainMenu,
+//                        Activity_Fragment::class.java
+//                    )
+//                    startActivity(intent_startFragment)
+
+                    val sharedView: View = view!!.findViewById<View>(R.id.row_launch_iv_image) as ImageView
+                    val transitionName = getString(R.string.testMoveTransition)
+                    val intent_startLaunchAct =
+                        Intent(this@Activity_MainMenu, Activity_Fragment::class.java)
+                    val transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
                         this@Activity_MainMenu,
-                        Activity_Fragment::class.java
+                        Pair.create(sharedView, transitionName)
                     )
-                    startActivity(intent_startFragment)
+                    startActivity(intent_startLaunchAct, transitionActivityOptions.toBundle())
                 }
             }
         }
