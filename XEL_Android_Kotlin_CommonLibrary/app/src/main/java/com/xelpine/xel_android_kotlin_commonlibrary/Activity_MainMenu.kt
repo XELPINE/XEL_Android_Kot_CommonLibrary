@@ -354,6 +354,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startLaunchAct, transitionActivityOptions.toBundle())
                 }
+
+                17 -> {
+                    val intent_startRoom = Intent(
+                        this@Activity_MainMenu,
+                        Activity_Room::class.java
+                    )
+                    startActivity(intent_startRoom)
+                }
             }
         }
     })
@@ -446,6 +454,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_13 = LaunchDto(null)
         model_13.menuName = "Fragment"
         arrayList_launch!!.add(model_13)
+
+        // Room
+        val model_14 = LaunchDto(null)
+        model_14.menuName = "Room"
+        arrayList_launch!!.add(model_14)
     }
 
 
