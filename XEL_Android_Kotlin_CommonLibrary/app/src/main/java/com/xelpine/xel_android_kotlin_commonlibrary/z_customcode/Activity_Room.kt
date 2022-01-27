@@ -20,6 +20,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityRoomBind
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.callback.CommonDataLoadCallback
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.db_room.appdatabase.GSCharactersAppDatabase
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.db_room.entity.GSCharacters
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.db_room.entity.GSFarmingResources
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.RoomInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Room
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Room
@@ -109,15 +110,24 @@ class Activity_Room : XELActivity_Base(), RoomInterface
 
                 XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM INSERT (ROOM 저장)")
 
-                gsCharactersDB!!.gsCharactersDao()
-                    .insertAll(GSCharacters("ID2", "NAME2", "NAMEENG2", "SKILL2", "PROP2"))
+//                gsCharactersDB!!.gsCharactersDao()
+//                    .insertAll(GSCharacters("ID2", "NAME2", "NAMEENG2", "SKILL2", "PROP2"))
 
-                XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM SELECT (ROOM 조회) : " + gsCharactersDB!!.gsCharactersDao().getAll().toString())
+                gsCharactersDB!!.gsFarmingResourcesDao().insertAll(GSFarmingResources("ID1", "FARMKOR1",
+                    "FARMENG1", "COUNTRYID1", "URL1", 3000, 4000))
+
+                XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM SELECT (ROOM 조회 gsCharactersDao) : " + gsCharactersDB!!.gsCharactersDao().getAll().toString())
+                XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM SELECT (ROOM 조회 gsFarmingResourcesDao) : " + gsCharactersDB!!.gsFarmingResourcesDao().getAll().toString())
 
             }
         })
 
+        gsCharactersDB!!.gsFarmingResourcesDao()
 
+
+
+        XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM SELECT (ROOM 조회 gsCharactersDao) : " + gsCharactersDB!!.gsCharactersDao().getAll().toString())
+        XELLogUtil.i_function(XELGlobalDefine.TAG, "BTN1 ROOM SELECT (ROOM 조회 gsFarmingResourcesDao) : " + gsCharactersDB!!.gsFarmingResourcesDao().getAll().toString())
 
     }
 

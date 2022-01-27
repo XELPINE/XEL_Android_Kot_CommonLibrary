@@ -4,18 +4,20 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * 캐릭터 DB
+ * 파밍 재료 DB
  */
-@Entity (tableName = "GSCharacters")
-data class GSCharacters
+@Entity (tableName = "GSFarmingResources")
+data class GSFarmingResources
     (
     //@PrimaryKey(autoGenerate = true) val id:Long,
     @PrimaryKey
     val id:String,
     var name_kor : String,              // 이름
     var name_eng : String,              // 이름
-    var skillResourcesId: String,   // 스킬 재료 ID
-    var propertyId: String      // 속성ID
+    var countryId: String,   // 국가ID
+    var imageUrl: String,
+    var coolTimeDurationSeconds: Int,      // 쿨타임 간격
+    var nextGenTime: Int      // 다음 젠시간
 )
 {
 
