@@ -106,6 +106,10 @@ class Activity_AlarmAndNotification : XELActivity_Base(), AlarmAndNotificationIn
                 val alarmManager : AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
 
                 var alarmIntent = Intent(this@Activity_AlarmAndNotification, XELAlarmReceiver::class.java)
+
+                alarmIntent.putExtra("TITLE", "ACTIVITY TITLE")
+                alarmIntent.putExtra("TEXT", "ACTIVITY TEXT")
+
                 var pendingIntent = PendingIntent.getBroadcast(this@Activity_AlarmAndNotification, 111, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
                 /**
@@ -117,11 +121,11 @@ class Activity_AlarmAndNotification : XELActivity_Base(), AlarmAndNotificationIn
                  */
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pendingIntent); //10초뒤 알람
+                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent); //10초뒤 알람
                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pendingIntent);
+                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
                 } else {
-                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000, pendingIntent);
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
 
         }
 
