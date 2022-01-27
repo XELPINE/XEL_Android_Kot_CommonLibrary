@@ -3,24 +3,32 @@
     package="com.xelpine.xel_android_kotlin_commonlibrary">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.NFC" />
-    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:name=".CommonUtils.CommonApplication.XELGlobalApplication"
-        android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.XEL_Android_CommonLibrary">
+        android:theme="@style/Theme.XEL_Android_CommonLibrary"
+        android:usesCleartextTraffic="true">
+        <receiver
+            android:name=".z_customcode.receiver.XELAlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -30,88 +38,69 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CommonUtils.XELPermissionHelper.XELPermissionActivity"
-            android:theme="@style/Theme.XEL_Activity_Transparent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
-
+            android:theme="@style/Theme.XEL_Activity_Transparent"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".CommonUtils.XELActivity.XELActivity_BottomPopup"
-            android:theme="@style/Theme.XEL_Activity_PopupTransparent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
-
+            android:theme="@style/Theme.XEL_Activity_PopupTransparent"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".Activity_MainMenu"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_Volley"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_Glide"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_NFCWrite"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_NFCRead"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_FileWrite"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_FileRead"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_ImageFileRead"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_Skeleton"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_Fragment"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity
             android:name=".z_customcode.Activity_Room"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+        <activity
+            android:name=".z_customcode.Activity_AlarmAndNotification"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+
+        <receiver
+            android:name=".z_customcode.receiver.XELAlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

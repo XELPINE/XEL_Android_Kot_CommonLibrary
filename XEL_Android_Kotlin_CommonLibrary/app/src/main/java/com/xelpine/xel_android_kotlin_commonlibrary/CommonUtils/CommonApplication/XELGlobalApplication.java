@@ -2,8 +2,11 @@ package com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplicati
 
 
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.nfc.NfcAdapter;
+import android.os.Build;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -34,6 +37,18 @@ public class XELGlobalApplication extends Application {
 //        initImageLoader();
         getSharedPreference(this);
         VolleyDefaultRetryPolicy();
+
+        /**
+         * 노티피케이션 채널 생성하기 안드로이드 버전 오레오 이상부터 필요
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "XEL ALARAM CHANNEL ID"; // 채널 아이디
+            CharSequence channelName = "XEL ALARAM CHANNEL NAME"; //채널 이름
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
 //    public DisplayImageOptions getDisplayOption() {

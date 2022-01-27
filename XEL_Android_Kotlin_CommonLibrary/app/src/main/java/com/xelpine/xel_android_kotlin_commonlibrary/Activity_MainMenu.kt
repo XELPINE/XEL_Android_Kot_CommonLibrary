@@ -116,9 +116,9 @@ class Activity_MainMenu : XELActivity_Base() {
 
     override fun displayPortraitAfter() {
 
-        // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
-        if (XELSystemUtil.isDeviceNotchExist(this))
-        {
+//        // 노치가 있을 때만 네비게이션 바가 있다고 판단하는게 나을 것 같다..
+//        if (XELSystemUtil.isDeviceNotchExist(this))
+//        {
             // 네비게이션 바가 투명하다면, 바닥의 패딩은 네비게이션바 높이만큼 추가해줘야 한다.
             rv_main!!.setPadding(
                 0,
@@ -126,11 +126,11 @@ class Activity_MainMenu : XELActivity_Base() {
                 0,
                 XELSystemUtil.getNavigationBarHeight(this)
             )
-        }
-        else
-        {
-            rv_main!!.setPadding(0, 0, 0, 0)
-        }
+//        }
+//        else
+//        {
+//            rv_main!!.setPadding(0, 0, 0, 0)
+//        }
 
     }
 
@@ -362,6 +362,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startRoom)
                 }
+
+                18 -> {
+                    val intent_startAlarmAndNotification = Intent(
+                        this@Activity_MainMenu,
+                        Activity_AlarmAndNotification::class.java
+                    )
+                    startActivity(intent_startAlarmAndNotification)
+                }
             }
         }
     })
@@ -459,6 +467,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_14 = LaunchDto(null)
         model_14.menuName = "Room"
         arrayList_launch!!.add(model_14)
+
+        // Alarm And Notification
+        val model_15 = LaunchDto(null)
+        model_15.menuName = "Alarm And Notification"
+        arrayList_launch!!.add(model_15)
     }
 
 
