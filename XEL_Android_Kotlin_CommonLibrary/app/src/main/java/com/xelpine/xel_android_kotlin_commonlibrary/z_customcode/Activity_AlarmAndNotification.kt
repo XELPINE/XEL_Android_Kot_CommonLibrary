@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELActivity_Base
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELAlarmUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELExtension.notifyObserver
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELHandlerUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
@@ -103,31 +104,35 @@ class Activity_AlarmAndNotification : XELActivity_Base(), AlarmAndNotificationIn
         mBinding.button1.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
 
-                val alarmManager : AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+                XELAlarmUtil.createAlarm(this@Activity_AlarmAndNotification, 1, "Activity Title 1", "Acbtivity Text 1", 5000)
+                XELAlarmUtil.createAlarm(this@Activity_AlarmAndNotification, 2, "Activity Title 2", "Acbtivity Text 2", 5000)
+                XELAlarmUtil.createAlarm(this@Activity_AlarmAndNotification, 3, "Activity Title 3", "Acbtivity Text 3", 5000)
 
-                var alarmIntent = Intent(this@Activity_AlarmAndNotification, XELAlarmReceiver::class.java)
-
-                alarmIntent.putExtra("TITLE", "ACTIVITY TITLE")
-                alarmIntent.putExtra("TEXT", "ACTIVITY TEXT")
-
-                var pendingIntent = PendingIntent.getBroadcast(this@Activity_AlarmAndNotification, 111, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-                /**
-                 * Intent 플래그
-                 *    FLAG_ONE_SHOT : 한번만 사용하고 다음에 이 PendingIntent가 불려지면 Fail을 함
-                 *    FLAG_NO_CREATE : PendingIntent를 생성하지 않음. PendingIntent가 실행중인것을 체크를 함
-                 *    FLAG_CANCEL_CURRENT : 실행중인 PendingIntent가 있다면 기존 인텐트를 취소하고 새로만듬
-                 *    FLAG_UPDATE_CURRENT : 실행중인 PendingIntent가 있다면  Extra Data만 교체함
-                 */
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent); //10초뒤 알람
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
-                } else {
-                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
-
-        }
+//                val alarmManager : AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+//
+//                var alarmIntent = Intent(this@Activity_AlarmAndNotification, XELAlarmReceiver::class.java)
+//
+//                alarmIntent.putExtra("TITLE", "ACTIVITY TITLE")
+//                alarmIntent.putExtra("TEXT", "ACTIVITY TEXT")
+//
+//                var pendingIntent = PendingIntent.getBroadcast(this@Activity_AlarmAndNotification, 111, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+//
+//                /**
+//                 * Intent 플래그
+//                 *    FLAG_ONE_SHOT : 한번만 사용하고 다음에 이 PendingIntent가 불려지면 Fail을 함
+//                 *    FLAG_NO_CREATE : PendingIntent를 생성하지 않음. PendingIntent가 실행중인것을 체크를 함
+//                 *    FLAG_CANCEL_CURRENT : 실행중인 PendingIntent가 있다면 기존 인텐트를 취소하고 새로만듬
+//                 *    FLAG_UPDATE_CURRENT : 실행중인 PendingIntent가 있다면  Extra Data만 교체함
+//                 */
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent); //10초뒤 알람
+//                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
+//                } else {
+//                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pendingIntent);
+//
+//                }
 
             }
         })

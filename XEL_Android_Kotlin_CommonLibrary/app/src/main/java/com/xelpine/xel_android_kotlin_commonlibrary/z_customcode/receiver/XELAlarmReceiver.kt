@@ -32,7 +32,7 @@ class XELAlarmReceiver : BroadcastReceiver() {
             //.setFullScreenIntent(fullScreenPendingIntent, true)
 
         val notiManager = NotificationManagerCompat.from(context)
-        notiManager.notify(10, builder.build())
+        notiManager.notify(intent.getIntExtra("ID", -1), builder.build())
 
     }
 }
