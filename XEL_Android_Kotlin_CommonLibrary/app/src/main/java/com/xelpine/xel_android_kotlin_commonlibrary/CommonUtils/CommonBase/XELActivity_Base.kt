@@ -293,7 +293,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
      */
     private fun NFCReadInit() {
 //        mNfcAdapter = XELGlobalApplication.getInstance().getNfcAdapter(this);
-        XELGlobalApplication.getInstance().getNfcAdapter(this)
+        XELGlobalApplication.instance?.getNfcAdapter(this)
 
         // Handle foreground NFC scanning in this activity by creating a
         // PendingIntent with FLAG_ACTIVITY_SINGLE_TOP flag so each new scan
@@ -352,7 +352,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // Enable priority for current activity to detect scanned tags
             // enableForegroundDispatch( activity, pendingIntent, intentsFiltersArray, techListsArray );
-            XELGlobalApplication.getInstance().getNfcAdapter(this).enableForegroundDispatch(this, mNfcPendingIntent, mReadTagFilters, null)
+            XELGlobalApplication.instance.getNfcAdapter(this)?.enableForegroundDispatch(this, mNfcPendingIntent, mReadTagFilters, null)
         }
         doResume()
     }
@@ -391,7 +391,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
         // NFC Read
         if (selectedNFCReadMode == NFCReadMode.READ) {
-            XELGlobalApplication.getInstance().getNfcAdapter(this).disableForegroundDispatch(this)
+            XELGlobalApplication.instance.getNfcAdapter(this)?.disableForegroundDispatch(this)
         }
         super.onPause()
 

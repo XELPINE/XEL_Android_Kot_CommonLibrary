@@ -173,7 +173,7 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
             null,
             "TAG_1",
             "UTF-8",
-            XELGlobalApplication.getInstance().VolleyDefaultRetryPolicy(),
+            XELGlobalApplication.instance.VolleyDefaultRetryPolicy(),
             this
         )
         val map = HashMap<String, String>()
@@ -189,7 +189,7 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
             map,
             "TAG_2",
             "UTF-8",
-            XELGlobalApplication.getInstance().VolleyDefaultRetryPolicy(),
+            XELGlobalApplication.instance.VolleyDefaultRetryPolicy(),
             this
         )
 

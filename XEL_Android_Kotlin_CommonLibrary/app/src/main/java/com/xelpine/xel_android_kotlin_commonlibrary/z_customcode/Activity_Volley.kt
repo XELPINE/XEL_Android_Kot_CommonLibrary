@@ -97,7 +97,7 @@ class Activity_Volley : XELActivity_Base() {
             null,
             "TAG_1",
             "UTF-8",
-            XELGlobalApplication.getInstance().VolleyDefaultRetryPolicy(),
+            XELGlobalApplication.instance.VolleyDefaultRetryPolicy(),
             this
         )
         val map = HashMap<String, String>()
@@ -113,7 +113,7 @@ class Activity_Volley : XELActivity_Base() {
             map,
             "TAG_2",
             "UTF-8",
-            XELGlobalApplication.getInstance().VolleyDefaultRetryPolicy(),
+            XELGlobalApplication.instance.VolleyDefaultRetryPolicy(),
             this
         )
 

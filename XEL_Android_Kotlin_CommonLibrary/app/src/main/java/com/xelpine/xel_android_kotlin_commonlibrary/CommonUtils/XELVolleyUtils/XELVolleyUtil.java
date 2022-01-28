@@ -62,7 +62,7 @@ public class XELVolleyUtil
         stringErrorListener.setCharsetStringRequest(stringRequest);
 
         // Queue에 정보 요청 시작. 값은 콜백 핸들러로 들어온다.
-        XELGlobalApplication.getInstance().addToVolleyRequestQueue(stringRequest);
+        XELGlobalApplication.instance.addToVolleyRequestQueue(stringRequest);
     }
 
     public interface XELVolleyResponseInterface

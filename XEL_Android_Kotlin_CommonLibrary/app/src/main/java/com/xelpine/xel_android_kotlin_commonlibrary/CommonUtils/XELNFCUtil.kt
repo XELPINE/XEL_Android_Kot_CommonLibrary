@@ -11,8 +11,7 @@ object XELNFCUtil {
      */
     fun checkNfcEnabled(context: Context?): Boolean {
         XELLogUtil.d_function(XELGlobalDefine.TAG, "checkNfcEnabled (NFC 활성화 체크)")
-        val nfcEnabled: Boolean =
-            XELGlobalApplication.getInstance().getNfcAdapter(context).isEnabled()
+        val nfcEnabled: Boolean = XELGlobalApplication.instance.getNfcAdapter(context)!!.isEnabled()
         XELLogUtil.d_function(XELGlobalDefine.TAG, "checkNfcEnabled (NFC 활성화 체크 결과) : $nfcEnabled")
 
         // NFC 꺼져있음
