@@ -97,6 +97,10 @@
             android:name=".z_customcode.Activity_AlarmAndNotification"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+        <activity
+            android:name=".z_customcode.Activity_ProgressBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
 
         <receiver
             android:name=".z_customcode.receiver.XELAlarmReceiver"

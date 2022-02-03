@@ -17,7 +17,9 @@ object XELHandlerUtil {
     fun PostDelayed(delayed: Long, delayedCompleteCallback: DelayedCompleteCallback) {
         handler.removeMessages(0)
         handler.postDelayed(
-            { delayedCompleteCallback.DelayComplete() },
+            {
+                delayedCompleteCallback.DelayComplete()
+            },
             delayed
         )
     }

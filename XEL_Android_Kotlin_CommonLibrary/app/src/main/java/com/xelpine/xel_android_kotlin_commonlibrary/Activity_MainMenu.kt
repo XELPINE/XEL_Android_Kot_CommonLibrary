@@ -370,6 +370,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startAlarmAndNotification)
                 }
+
+                19 -> {
+                    val intent_startProgressBar = Intent(
+                        this@Activity_MainMenu,
+                        Activity_ProgressBar::class.java
+                    )
+                    startActivity(intent_startProgressBar)
+                }
             }
         }
     })
@@ -472,6 +480,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_15 = LaunchDto(null)
         model_15.menuName = "Alarm And Notification"
         arrayList_launch!!.add(model_15)
+
+        // ProgressBar
+        val model_16 = LaunchDto(null)
+        model_16.menuName = "ProgressBar Library"
+        arrayList_launch!!.add(model_16)
     }
 
 

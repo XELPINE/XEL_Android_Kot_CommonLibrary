@@ -36,6 +36,7 @@
                     app:contentInsetLeft="0dp"
                     app:contentInsetStart="0dp"
                     app:contentInsetStartWithNavigation="0dp"
+                    app:titleTextColor="@color/common_white_only"
                     android:fitsSystemWindows="false"/>
 
         </com.google.android.material.appbar.AppBarLayout>
