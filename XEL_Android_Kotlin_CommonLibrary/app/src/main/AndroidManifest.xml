@@ -26,7 +26,7 @@
         android:theme="@style/Theme.XEL_Android_CommonLibrary"
         android:usesCleartextTraffic="true">
         <receiver
-            android:name=".z_customcode.receiver.XELAlarmReceiver"
+            android:name=".CommonUtils.XELCommonReceiver.XELAlarmReceiver"
             android:enabled="true"
             android:exported="true"></receiver>
 
@@ -103,12 +103,12 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
 
         <receiver
-            android:name=".z_customcode.receiver.XELAlarmReceiver"
+            android:name=".CommonUtils.XELCommonReceiver.XELAlarmReceiver"
             android:enabled="true"
             android:exported="true"></receiver>
 
         <receiver
-            android:name=".z_customcode.receiver.XELRebootReceiver"
+            android:name=".CommonUtils.XELCommonReceiver.XELRebootReceiver"
             android:enabled="true"
             android:exported="true">
 

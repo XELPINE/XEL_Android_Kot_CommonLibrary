@@ -1,4 +1,4 @@
-package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.receiver
+package com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELCommonReceiver
 
 import android.app.Activity
 import android.app.Notification

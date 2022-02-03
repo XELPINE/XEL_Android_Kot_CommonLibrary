@@ -7,7 +7,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
-import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.receiver.XELAlarmReceiver
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELCommonReceiver.XELAlarmReceiver
 
 /**
  * 알람매니저 관련 유틸.
