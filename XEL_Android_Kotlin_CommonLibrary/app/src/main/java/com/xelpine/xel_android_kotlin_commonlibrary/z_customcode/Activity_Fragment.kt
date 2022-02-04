@@ -134,6 +134,12 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
     override fun doResume() {
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {
     }
 }

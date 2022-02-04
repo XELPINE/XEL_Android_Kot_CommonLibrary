@@ -145,6 +145,14 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
     override fun doResume() {
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {
     }
+
+
 }

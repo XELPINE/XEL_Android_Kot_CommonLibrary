@@ -189,6 +189,12 @@ class XELActivity_BottomPopup : XELActivity_Base()
 
     protected override fun doResume() {}
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     protected override fun doDestroy() {}
 
     override fun onAttachedToWindow() {

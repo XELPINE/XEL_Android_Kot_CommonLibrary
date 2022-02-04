@@ -137,6 +137,12 @@ class Activity_Room : XELActivity_Base(), RoomInterface
     override fun doResume() {
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {
     }
 }

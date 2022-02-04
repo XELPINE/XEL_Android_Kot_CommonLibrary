@@ -137,6 +137,13 @@ class XELPermissionActivity : XELActivity_Base() {
     protected override fun initAfterLogic() {}
     protected override fun doPause() {}
     protected override fun doResume() {}
+
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     protected override fun doDestroy() {}
 
     override fun onRequestPermissionsResult(

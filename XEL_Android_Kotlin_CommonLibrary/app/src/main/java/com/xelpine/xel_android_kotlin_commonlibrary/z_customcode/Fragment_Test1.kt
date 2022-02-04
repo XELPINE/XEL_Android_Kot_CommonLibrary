@@ -195,6 +195,26 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
 
     }
 
+    override fun doStart() {
+        TODO("Not yet implemented")
+    }
+
+    override fun doResume() {
+        TODO("Not yet implemented")
+    }
+
+    override fun doPause() {
+        TODO("Not yet implemented")
+    }
+
+    override fun doStop() {
+        TODO("Not yet implemented")
+    }
+
+    override fun doDestroyView() {
+        TODO("Not yet implemented")
+    }
+
     override fun onDataResponseSucess(tag: String, data: String) {
         super.onDataResponseSucess(tag, data)
 

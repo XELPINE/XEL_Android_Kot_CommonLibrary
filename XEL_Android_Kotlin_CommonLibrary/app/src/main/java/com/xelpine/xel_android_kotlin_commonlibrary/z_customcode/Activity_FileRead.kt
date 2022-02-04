@@ -343,6 +343,11 @@ class Activity_FileRead : XELActivity_Base ()
     protected override fun doPause() {}
 
     protected override fun doResume() {}
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
 
     protected override fun doDestroy() {}
 }

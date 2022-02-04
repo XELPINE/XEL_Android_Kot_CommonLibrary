@@ -130,6 +130,12 @@ class Activity_AlarmAndNotification : XELActivity_Base(), AlarmAndNotificationIn
     override fun doResume() {
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {
     }
 }

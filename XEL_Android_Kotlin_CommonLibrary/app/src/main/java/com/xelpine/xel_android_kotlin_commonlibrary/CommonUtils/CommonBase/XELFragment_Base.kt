@@ -82,6 +82,46 @@ abstract class XELFragment_Base : Fragment(), XELVolleyUtil.XELVolleyResponseInt
      */
     protected abstract fun initAfterLogic()
 
+    protected abstract fun doStart()
+
+    protected abstract fun doResume()
+
+    protected abstract fun doPause()
+
+    protected abstract fun doStop()
+
+    protected abstract fun doDestroyView()
+
+    override fun onStart() {
+        super.onStart()
+
+        doStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        doResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        doPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        doStop()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        doDestroyView()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

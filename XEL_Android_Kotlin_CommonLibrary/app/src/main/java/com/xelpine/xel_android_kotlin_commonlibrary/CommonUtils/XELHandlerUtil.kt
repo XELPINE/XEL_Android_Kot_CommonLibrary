@@ -1,6 +1,7 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils;
 
 import android.os.Handler
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 
 /**
  * 핸들러 관련 유틸리티. postDelayed 위주
@@ -15,9 +16,13 @@ object XELHandlerUtil {
      * @param delayedCompleteCallback
      */
     fun PostDelayed(delayed: Long, delayedCompleteCallback: DelayedCompleteCallback) {
+
+        XELLogUtil.i_function(XELGlobalDefine.TAG, "PostDelayed (핸들러Util) 시작")
+
         handler.removeMessages(0)
         handler.postDelayed(
             {
+                XELLogUtil.i_function(XELGlobalDefine.TAG, "PostDelayed (핸들러Util) DelayComplete")
                 delayedCompleteCallback.DelayComplete()
             },
             delayed

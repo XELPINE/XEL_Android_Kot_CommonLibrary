@@ -85,6 +85,12 @@ class Activity_Glide : XELActivity_Base() {
 
     protected override fun doResume() {}
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     protected override fun doDestroy() {}
 
 }

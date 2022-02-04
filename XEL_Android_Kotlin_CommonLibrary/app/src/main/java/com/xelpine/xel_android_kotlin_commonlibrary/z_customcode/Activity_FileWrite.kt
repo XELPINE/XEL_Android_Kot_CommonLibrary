@@ -71,6 +71,11 @@ class Activity_FileWrite : XELActivity_Base() {
     override fun doPause() {}
 
     override fun doResume() {}
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
 
     override fun doDestroy() {}
 

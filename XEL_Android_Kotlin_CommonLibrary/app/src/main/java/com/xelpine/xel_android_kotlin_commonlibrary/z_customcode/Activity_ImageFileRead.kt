@@ -211,5 +211,11 @@ class Activity_ImageFileRead : XELActivity_Base(){
 
     override fun doResume() {}
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {}
 }

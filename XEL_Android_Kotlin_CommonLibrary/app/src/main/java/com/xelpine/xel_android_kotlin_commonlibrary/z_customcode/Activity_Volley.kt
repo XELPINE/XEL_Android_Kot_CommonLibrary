@@ -159,5 +159,11 @@ class Activity_Volley : XELActivity_Base() {
 
     override fun doPause() {}
     override fun doResume() {}
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     override fun doDestroy() {}
 }

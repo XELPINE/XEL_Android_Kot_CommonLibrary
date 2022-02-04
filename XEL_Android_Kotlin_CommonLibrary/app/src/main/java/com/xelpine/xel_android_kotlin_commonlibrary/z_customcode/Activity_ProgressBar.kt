@@ -8,8 +8,10 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonBase.XELActivity_Base
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELHandlerUtil
+import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityProgressbarBinding
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.ProgressBarInterface
@@ -26,6 +28,8 @@ class Activity_ProgressBar : XELActivity_Base(), ProgressBarInterface
 
     // Adapter
 //    lateinit var ProgressBarListAdapter : ProgressBarListAdapter
+
+    val timer : Timer = Timer()
 
 
     override fun doCreate(savedInstanceState: Bundle?) {
@@ -97,7 +101,7 @@ class Activity_ProgressBar : XELActivity_Base(), ProgressBarInterface
         mBinding.firstBar.setAnimationLength(200)
         mBinding.firstBar.showProgressText(false)
 
-        val timer : Timer = Timer()
+
 
         timer.schedule(object : TimerTask() {
             override fun run() {
@@ -128,6 +132,19 @@ class Activity_ProgressBar : XELActivity_Base(), ProgressBarInterface
     override fun doResume() {
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "doStop")
+        timer.cancel()
+    }
+
     override fun doDestroy() {
+
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "doDestroy")
+
+
     }
 }

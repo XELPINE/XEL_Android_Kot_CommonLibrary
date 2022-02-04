@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.WindowCompat
+import com.xelpine.xel_android_kotlin_commonlibrary.Activity_MainMenu
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalApplication
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplication.XELGlobalDefine
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
@@ -168,12 +169,22 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // 가로모드
             try {
-                if (XELSystemUtil.isDeviceNotchExist(this)) {
-                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
+                if (XELSystemUtil.isDeviceNotchExist(this))
+                {
                     toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 50), 0, 0, 0)
+
                     if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
                         toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 100), 0, 0, 0)
                     }
+                }
+                else if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
+                    toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 0), 0, 0, 0)
+                }
+                else
+                {
+                    toolbar.setPadding(0, 0, 0, 0)
                 }
             } catch (e: Exception) {
                 XELLogUtil.e(XELGlobalDefine.TAG, "", e)
@@ -185,8 +196,14 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // 세로모드
             try {
-                if (XELSystemUtil.isDeviceNotchExist(this)) {
-                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
+                if (XELSystemUtil.isDeviceNotchExist(this))
+                {
+                    toolbar.setPadding(0, 0, 0, 0)
+                }
+                else
+                {
                     toolbar.setPadding(0, 0, 0, 0)
                 }
             } catch (e: Exception) {
@@ -215,18 +232,17 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
      */
     protected abstract fun initAfterLogic()
 
-    /**
-     * Activity가 pause 상태에 진입을 하고, 실제로 activity 가 pause call back을 처리해야하는 상황일때 호출한다.
-     */
-    protected abstract fun doPause()
+    protected abstract fun doStart()
 
     protected abstract fun doResume()
 
+    protected abstract fun doPause()
+
+    protected abstract fun doStop()
+
     protected abstract fun doDestroy()
 
-    protected fun doStart() {}
 
-    protected fun doStop() {}
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -237,7 +253,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
             XELLogUtil.e(XELGlobalDefine.TAG, "onCreate() is NOT Null")
             XELLogUtil.e(XELGlobalDefine.TAG, "App이 비정상으로 종료되어 App을 재시작합니다.")
             ActivityCompat.finishAffinity(this@XELActivity_Base)
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, Activity_MainMenu::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             return
@@ -493,7 +509,7 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
             XELLogUtil.e(XELGlobalDefine.TAG, "onRestoreInstanceState() is NOT Null")
             XELLogUtil.e(XELGlobalDefine.TAG, "App이 비정상으로 종료되어 App을 재시작합니다.")
             ActivityCompat.finishAffinity(this@XELActivity_Base)
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, Activity_MainMenu::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
@@ -542,12 +558,22 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
                 displayLandscapeAfter()
 
                 try {
-                    if (XELSystemUtil.isDeviceNotchExist(this)) {
-                        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
+                    if (XELSystemUtil.isDeviceNotchExist(this))
+                    {
                         toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 50), 0, 0, 0)
+
                         if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
                             toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 100), 0, 0, 0)
                         }
+                    }
+                    else if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
+                        toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 0), 0, 0, 0)
+                    }
+                    else
+                    {
+                        toolbar.setPadding(0, 0, 0, 0)
                     }
                 } catch (e: Exception) {
                     XELLogUtil.e(XELGlobalDefine.TAG, "", e)
@@ -559,9 +585,14 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
                 displayPortraitAfter()
 
                 try {
+                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
                     if (XELSystemUtil.isDeviceNotchExist(this))
                     {
-                        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                        toolbar.setPadding(0, 0, 0, 0)
+                    }
+                    else
+                    {
                         toolbar.setPadding(0, 0, 0, 0)
                     }
                 }

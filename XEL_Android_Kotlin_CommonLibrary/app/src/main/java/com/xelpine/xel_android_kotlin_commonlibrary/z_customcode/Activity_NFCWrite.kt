@@ -270,5 +270,11 @@ class Activity_NFCWrite : XELActivity_Base()
         checkNfcEnabled()
     }
 
+    override fun doStart() {
+    }
+
+    override fun doStop() {
+    }
+
     protected override fun doDestroy() {}
 }
