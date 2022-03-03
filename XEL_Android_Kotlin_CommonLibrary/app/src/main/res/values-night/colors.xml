@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_black_only">#FF000000</color>
+    <color name="common_white_only">#FFFFFFFF</color>
+
+    <!-- 라이브러리 전용 컬러 -->
+    <color name="common_white_nightmode">#000000</color>
+    <color name="common_black_nightmode">#ffffff</color>
+    <color name="common_lightgray_nightmode">#434343</color>
+    <color name="common_white_background_nightmode">#1c1c1c</color>
+</resources>
