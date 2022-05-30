@@ -1,7 +1,9 @@
 # XEL_Android_Kot_CommonLibrary
 
 XELPINE 안드로이드 코틀린용 개인 라이브러리입니다.
+  
 개인적으로 개발하며 필요하며 만들었던 BaseActivity, BaseFragment, BottomSheetPopup, Google Volley 등의 라이브러리 조합을 하나의 샘플로 만들었습니다.
+  
 제 개인 앱들은 대부분 이 베이스를 기반으로 만들어지며, 이 라이브러리 역시 그때그떄 업데이트됩니다.
   
 # ReadMe
@@ -40,6 +42,9 @@ XELDialogUtil.MaterialDialog_OkOnlyText  </code></pre>
 
 
 # XELBottomPopup
+
+<img width="100%" src="https://user-images.githubusercontent.com/74861834/170941424-053ccd52-752c-4da3-9c2a-9303bebaedbc.png"/>
+
 아래에서 솟아오르는 형태의 팝업입니다.
 
 기본적으로 XELCommonSelectionInterface를 포함한 클래스의 arrayList를 전달해줘야 하며,
