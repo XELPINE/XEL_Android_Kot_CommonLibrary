@@ -27,6 +27,8 @@ abstract class XELFragment_Base : Fragment(), XELVolleyUtil.XELVolleyResponseInt
 
     }
 
+    protected abstract fun doOnAttach(context: Context)
+
     /**
      * 초기화 루틴을 실제로 구현하는 부분.
      */
@@ -47,6 +49,8 @@ abstract class XELFragment_Base : Fragment(), XELVolleyUtil.XELVolleyResponseInt
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
+        doOnAttach(context)
 
         val r = Resources.getSystem()
         val config = r.configuration

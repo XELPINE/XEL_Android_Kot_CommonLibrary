@@ -1,5 +1,6 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.activity.viewModels
@@ -42,6 +43,9 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
 
     // Adapter
     lateinit var frag1ListAdapter : Frag1ListAdapter
+
+    override fun doOnAttach(context: Context) {
+    }
 
 
     override fun doCreateView(
@@ -196,23 +200,18 @@ class Fragment_Test1 : XELFragment_Base(), Frag1Interface
     }
 
     override fun doStart() {
-        TODO("Not yet implemented")
     }
 
     override fun doResume() {
-        TODO("Not yet implemented")
     }
 
     override fun doPause() {
-        TODO("Not yet implemented")
     }
 
     override fun doStop() {
-        TODO("Not yet implemented")
     }
 
     override fun doDestroyView() {
-        TODO("Not yet implemented")
     }
 
     override fun onDataResponseSucess(tag: String, data: String) {

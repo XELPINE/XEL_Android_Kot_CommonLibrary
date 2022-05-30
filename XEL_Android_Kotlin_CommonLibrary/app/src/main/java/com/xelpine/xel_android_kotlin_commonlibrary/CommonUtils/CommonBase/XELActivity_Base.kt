@@ -16,6 +16,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.WindowCompat
@@ -25,7 +26,6 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.CommonApplicatio
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELSystemUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELVolleyUtils.XELVolleyUtil.XELVolleyResponseInterface
-import com.xelpine.xel_android_kotlin_commonlibrary.MainActivity
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import java.lang.Exception
 import java.lang.RuntimeException
@@ -131,6 +131,8 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
         XELLogUtil.d_function(XELGlobalDefine.TAG, "doCreate")
     }
 
+    protected abstract fun setTheme()
+
     /**
      * 프리셋 애니메이션 세팅. 애니메이션을 바꾸고 싶다면 해당 값을 오버라이드한다.
      */
@@ -169,22 +171,22 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // 가로모드
             try {
-                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
 
                 if (XELSystemUtil.isDeviceNotchExist(this))
                 {
-                    toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 50), 0, 0, 0)
+                    toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
 
-                    if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
-                        toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 100), 0, 0, 0)
+                    if (XELSystemUtil.hasNavBar(resources) == true) {
+                        toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
                     }
                 }
-                else if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
-                    toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 0), 0, 0, 0)
+                else if (XELSystemUtil.hasNavBar(resources) == true) {
+                    toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
                 }
                 else
                 {
-                    toolbar.setPadding(0, 0, 0, 0)
+                    toolbar?.setPadding(0, 0, 0, 0)
                 }
             } catch (e: Exception) {
                 XELLogUtil.e(XELGlobalDefine.TAG, "", e)
@@ -196,15 +198,15 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
             // 세로모드
             try {
-                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                val toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
 
                 if (XELSystemUtil.isDeviceNotchExist(this))
                 {
-                    toolbar.setPadding(0, 0, 0, 0)
+                    toolbar?.setPadding(0, 0, 0, 0)
                 }
                 else
                 {
-                    toolbar.setPadding(0, 0, 0, 0)
+                    toolbar?.setPadding(0, 0, 0, 0)
                 }
             } catch (e: Exception) {
                 XELLogUtil.e(XELGlobalDefine.TAG, "", e)
@@ -246,6 +248,8 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
+        setTheme()
+
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState != null)
@@ -558,22 +562,22 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
                 displayLandscapeAfter()
 
                 try {
-                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
 
                     if (XELSystemUtil.isDeviceNotchExist(this))
                     {
-                        toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 50), 0, 0, 0)
+                        toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
 
-                        if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
-                            toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 100), 0, 0, 0)
+                        if (XELSystemUtil.hasNavBar(resources) == true) {
+                            toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
                         }
                     }
-                    else if (XELSystemUtil.isActionBarBackButtonEnabled(this) == false) {
-                        toolbar.setPadding(XELSystemUtil.getStatusBarHeight(this, 0), 0, 0, 0)
+                    else if (XELSystemUtil.hasNavBar(resources) == true) {
+                        toolbar?.setPadding(XELSystemUtil.getNavigationBarHeight(this), 0, 0, 0)
                     }
                     else
                     {
-                        toolbar.setPadding(0, 0, 0, 0)
+                        toolbar?.setPadding(0, 0, 0, 0)
                     }
                 } catch (e: Exception) {
                     XELLogUtil.e(XELGlobalDefine.TAG, "", e)
@@ -585,15 +589,15 @@ abstract class XELActivity_Base : AppCompatActivity(), XELVolleyResponseInterfac
                 displayPortraitAfter()
 
                 try {
-                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+                    val toolbar = findViewById<View>(R.id.toolbar) as Toolbar?
 
                     if (XELSystemUtil.isDeviceNotchExist(this))
                     {
-                        toolbar.setPadding(0, 0, 0, 0)
+                        toolbar?.setPadding(0, 0, 0, 0)
                     }
                     else
                     {
-                        toolbar.setPadding(0, 0, 0, 0)
+                        toolbar?.setPadding(0, 0, 0, 0)
                     }
                 }
                 catch (e: Exception)

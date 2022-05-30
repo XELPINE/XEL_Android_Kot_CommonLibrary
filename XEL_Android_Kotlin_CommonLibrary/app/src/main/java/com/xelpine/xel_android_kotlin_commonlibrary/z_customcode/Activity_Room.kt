@@ -50,6 +50,9 @@ class Activity_Room : XELActivity_Base(), RoomInterface
         mBinding.roomViewModel = mViewModel
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

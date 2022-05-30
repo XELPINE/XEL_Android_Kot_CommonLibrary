@@ -44,6 +44,9 @@ class Activity_Fragment : XELActivity_Base(), FragmentInterface
         mBinding.framgentViewModel = mViewModel
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

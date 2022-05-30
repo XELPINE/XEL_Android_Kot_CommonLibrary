@@ -42,6 +42,9 @@ class Activity_ProgressBar : XELActivity_Base(), ProgressBarInterface
         mBinding.progressbarLibraryViewModel = mViewModel
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

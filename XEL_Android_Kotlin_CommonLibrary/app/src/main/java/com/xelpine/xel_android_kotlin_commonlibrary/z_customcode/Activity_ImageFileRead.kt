@@ -34,6 +34,9 @@ class Activity_ImageFileRead : XELActivity_Base(){
         setContentView(R.layout.activity_imagefileread)
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.NONE
     }

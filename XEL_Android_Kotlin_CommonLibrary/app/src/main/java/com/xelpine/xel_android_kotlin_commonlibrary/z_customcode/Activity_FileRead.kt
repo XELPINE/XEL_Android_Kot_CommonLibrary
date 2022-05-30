@@ -28,6 +28,9 @@ class Activity_FileRead : XELActivity_Base ()
         setContentView(R.layout.activity_fileread)
     }
 
+    override fun setTheme() {
+    }
+
     protected override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.NONE
     }

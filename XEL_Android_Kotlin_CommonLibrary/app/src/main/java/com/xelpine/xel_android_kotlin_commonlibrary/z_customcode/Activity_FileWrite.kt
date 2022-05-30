@@ -19,6 +19,9 @@ class Activity_FileWrite : XELActivity_Base() {
         setContentView(R.layout.activity_filewrite)
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_BOTTOM
     }

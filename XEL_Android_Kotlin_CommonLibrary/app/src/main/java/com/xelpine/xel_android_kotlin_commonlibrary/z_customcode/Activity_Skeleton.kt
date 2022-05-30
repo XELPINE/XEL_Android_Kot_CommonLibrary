@@ -45,6 +45,9 @@ class Activity_Skeleton : XELActivity_Base(), SkeletonInterface
         mBinding.skeletonViewModel = mViewModel
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

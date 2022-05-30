@@ -43,6 +43,9 @@ class Activity_NFCWrite : XELActivity_Base()
         XELLogUtil.d_function(XELGlobalDefine.TAG, "Activity_NFCWrite doCreate")
     }
 
+    override fun setTheme() {
+    }
+
     protected override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

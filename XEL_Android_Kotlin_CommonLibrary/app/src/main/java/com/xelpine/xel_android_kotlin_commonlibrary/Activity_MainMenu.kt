@@ -58,6 +58,9 @@ class Activity_MainMenu : XELActivity_Base() {
         XELLogUtil.d_function(XELGlobalDefine.TAG, "Activity_MainMenu doCreate")
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation {
         return PresetAnimation.NONE
     }

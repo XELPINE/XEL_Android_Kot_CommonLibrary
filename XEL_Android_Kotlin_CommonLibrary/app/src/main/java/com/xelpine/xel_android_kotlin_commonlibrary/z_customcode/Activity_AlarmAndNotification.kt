@@ -33,6 +33,9 @@ class Activity_AlarmAndNotification : XELActivity_Base(), AlarmAndNotificationIn
         mBinding.alarmAndNotificationViewModel = mViewModel
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.SLIDE_RIGHT
     }

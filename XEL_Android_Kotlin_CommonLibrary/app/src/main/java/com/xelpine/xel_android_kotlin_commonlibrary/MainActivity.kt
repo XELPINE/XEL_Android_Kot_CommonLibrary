@@ -14,6 +14,9 @@ class MainActivity : XELActivity_Base() {
         setContentView(R.layout.activity_main)
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation {
         return PresetAnimation.NONE
     }

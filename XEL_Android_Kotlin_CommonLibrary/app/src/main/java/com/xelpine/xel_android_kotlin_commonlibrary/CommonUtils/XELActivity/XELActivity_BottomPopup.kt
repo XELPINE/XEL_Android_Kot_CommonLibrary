@@ -63,6 +63,9 @@ class XELActivity_BottomPopup : XELActivity_Base()
         setContentView(R.layout.xel_activity_bottompopup)
     }
 
+    override fun setTheme() {
+    }
+
     protected override fun setPresetAnimation(): PresetAnimation {
         return PresetAnimation.SLIDE_BOTTOM
     }

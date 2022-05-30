@@ -34,6 +34,9 @@ class Activity_Volley : XELActivity_Base() {
         setContentView(R.layout.activity_volley)
     }
 
+    override fun setTheme() {
+    }
+
     override fun setPresetAnimation(): PresetAnimation {
         return PresetAnimation.NONE
     }

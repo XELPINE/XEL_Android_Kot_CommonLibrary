@@ -115,6 +115,9 @@ class XELPermissionActivity : XELActivity_Base() {
         }
     }
 
+    override fun setTheme() {
+    }
+
     protected override fun setPresetAnimation(): PresetAnimation {
         return PresetAnimation.NONE
     }

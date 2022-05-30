@@ -23,6 +23,9 @@ class Activity_Glide : XELActivity_Base() {
         setContentView(R.layout.activity_glide)
     }
 
+    override fun setTheme() {
+    }
+
     protected override fun setPresetAnimation(): PresetAnimation? {
         return PresetAnimation.NONE
     }
