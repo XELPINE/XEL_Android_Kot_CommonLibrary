@@ -150,7 +150,7 @@ XELBottomPopup은 Material Design 가이드를 준수하며 제작되었으며, 
 <table align="center">
   <tr>
     <td align="center">
-<img width="50%" src="https://user-images.githubusercontent.com/74861834/173474030-e3955971-d2b9-40e6-b421-0fb0e7292e26.gif"/>
+<img width="100%" src="https://user-images.githubusercontent.com/74861834/173474030-e3955971-d2b9-40e6-b421-0fb0e7292e26.gif"/>
     </td>
   </tr>
   <tr>
