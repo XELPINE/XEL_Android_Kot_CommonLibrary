@@ -11,12 +11,13 @@ CommonUtils 까지가 기본 라이브러리 패키지 영역, z_customcode 영�
 
 # MainMenu
 
-<img width="100%" src="https://user-images.githubusercontent.com/74861834/170941410-62e1b5b7-80b5-42a8-8670-cf5570344957.png"/>
+<img width="45%" src="https://user-images.githubusercontent.com/74861834/170941410-62e1b5b7-80b5-42a8-8670-cf5570344957.png"/>
 
 가장 첫화면에서 샘플코드들의 메뉴로 이동할 수 있습니다.
 
 
 # Dialog
+
 <img width="45%" src="https://user-images.githubusercontent.com/74861834/170941475-b2bb7c24-e009-415a-a6e2-6e9ada94c350.png"/>
 <img width="45%" src="https://user-images.githubusercontent.com/74861834/170941465-128d6e60-9720-430e-ab87-ac696fe61a5b.png"/>
 
@@ -75,7 +76,7 @@ XELBottomPopup은 Material Design 가이드를 준수하며 제작되었으며, 
 
 
 
-<pre><code>setWindowTransitions를()</code></pre>
+<pre><code>setWindowTransitions()</code></pre>
 
 Android Transition Animation을 구성하는 부분입니다. Transition Animation 구성 시, setWindowTransitions를 무시하게 됩니다.
 
@@ -85,3 +86,30 @@ Android Transition Animation을 구성하는 부분입니다. Transition Animati
 <pre><code>setPresetAnimation()</code></pre>
 
 프리셋으로 만들어진 애니메이션을 지정합니다. NONE, SLIDE_RIGHT, SLIDE_BOTTOM, FADE가 현재 개발되어 있으며, 애니메이션을 지정할 Activity에서 코드를 반드시 지정해야 합니다.
+
+<table>
+  <tr>
+    <td>
+<img width="100%" src="https://user-images.githubusercontent.com/74861834/173469921-b420d133-a0f6-4d38-85c5-588c435532e5.gif"/>
+    </td>
+    <td>
+<img width="100%" src="https://user-images.githubusercontent.com/74861834/173469929-ae704593-d097-4706-b4d2-92bed8d9f6da.gif"/>
+    </td>
+    <td>
+<img width="100%" src="https://user-images.githubusercontent.com/74861834/173469936-8f3c219c-6133-4f97-8f03-043f7917eecd.gif"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>FADE</b>
+    </td>
+    <td align="center">
+      <b>SLIDE_BOTTOM</b>
+    </td>
+        <td align="center">
+      <b>SLIDE_RIGHT</b>
+    </td>
+  </tr>
+</table>
+
+
