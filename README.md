@@ -1,5 +1,9 @@
 # XEL_Android_Kot_CommonLibrary
 
+[![GitHub stars](https://img.shields.io/github/stars/XELPINE/XEL_Android_Kot_CommonLibrary?color=red&style=for-the-badge)](https://github.com/XELPINE/XEL_Android_Kot_CommonLibrary/stargazers)
+<br>
+<img src="https://img.shields.io/badge/Language-Kotlin-red?style=for-the-badge"/>
+
 XELPINE 안드로이드 코틀린용 개인 라이브러리입니다.
   
 개인적으로 개발하며 필요하며 만들었던 BaseActivity, BaseFragment, BottomSheetPopup, Google Volley 등의 라이브러리 조합을 하나의 샘플로 만들었습니다.
