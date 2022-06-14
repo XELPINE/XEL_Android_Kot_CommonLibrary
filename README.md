@@ -60,3 +60,28 @@ bottomPopupResultLauncher.launch(intent_start_XEL_BottomPopup)</code></pre>
 형태로 실행할 수 있으며, registerForActivityResult를 통해 수신할 수 있습니다.
 
 XELBottomPopup은 Material Design 가이드를 준수하며 제작되었으며, DayNight Theme를 지원합니다.
+
+
+# XELActivity_Base
+
+베이스 액티비티입니다. AppCompatActivity를 상속받아 커스텀된 구조이며, 추상클래스 구조이기에 일부 메소드를 구현해야 합니다.
+
+
+
+<pre><code>setTheme()</code></pre>
+
+테마가 변경될 경우 불려지는 메소드입니다. 테마 변경 후 setContentView가 호출되기 전에 필요한 작업을 기록하십시오.
+
+
+
+
+<pre><code>setWindowTransitions를()</code></pre>
+
+Android Transition Animation을 구성하는 부분입니다. Transition Animation 구성 시, setWindowTransitions를 무시하게 됩니다.
+
+
+
+
+<pre><code>setPresetAnimation()</code></pre>
+
+프리셋으로 만들어진 애니메이션을 지정합니다. NONE, SLIDE_RIGHT, SLIDE_BOTTOM, FADE가 현재 개발되어 있으며, 애니메이션을 지정할 Activity에서 코드를 반드시 지정해야 합니다.
