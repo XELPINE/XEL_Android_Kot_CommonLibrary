@@ -9,6 +9,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELLogUtil
 import com.xelpine.xel_android_kotlin_commonlibrary.R
 import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityHiltBinding
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.HiltClassADto
+import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.HiltClassBDto
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.HiltInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Hilt
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Hilt
@@ -70,7 +71,7 @@ class Activity_Hilt : XELActivity_Base(), HiltInterface
 
 //        mViewModel.viewModelInit()
 
-        XELLogUtil.e(XELGlobalDefine.TAG, "CLASS B :" + classA.frag1Title)
+        XELLogUtil.e(XELGlobalDefine.TAG, "CLASS B :" + HiltClassADto(HiltClassBDto("asdflkjasdfk")).classB.classBtitle)
     }
 
     override fun doStart() {
