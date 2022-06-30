@@ -381,6 +381,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startProgressBar)
                 }
+
+                20 -> {
+                    val intent_startHilt = Intent(
+                        this@Activity_MainMenu,
+                        Activity_Hilt::class.java
+                    )
+                    startActivity(intent_startHilt)
+                }
             }
         }
     })
@@ -488,6 +496,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_16 = LaunchDto(null)
         model_16.menuName = "ProgressBar Library"
         arrayList_launch!!.add(model_16)
+
+        // Hilt
+        val model_17 = LaunchDto(null)
+        model_17.menuName = "Hilt"
+        arrayList_launch!!.add(model_17)
     }
 
 

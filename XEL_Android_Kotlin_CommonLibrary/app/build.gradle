@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 
 }
 android {
@@ -79,4 +80,8 @@ dependencies {
 
     // RoundedProgressBar
     implementation 'com.github.MackHartley:RoundedProgressBar:2.1.1'
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:2.38"
+    kapt "com.google.dagger:hilt-android-compiler:2.38"
 }
