@@ -389,6 +389,14 @@ class Activity_MainMenu : XELActivity_Base() {
                     )
                     startActivity(intent_startHilt)
                 }
+
+                21 -> {
+                    val intent_startRetrofit = Intent(
+                        this@Activity_MainMenu,
+                        Activity_Retrofit::class.java
+                    )
+                    startActivity(intent_startRetrofit)
+                }
             }
         }
     })
@@ -501,6 +509,11 @@ class Activity_MainMenu : XELActivity_Base() {
         val model_17 = LaunchDto(null)
         model_17.menuName = "Hilt"
         arrayList_launch!!.add(model_17)
+
+        // Retrofit
+        val model_18 = LaunchDto(null)
+        model_18.menuName = "Retrofit"
+        arrayList_launch!!.add(model_18)
     }
 
 
