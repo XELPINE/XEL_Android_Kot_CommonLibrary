@@ -14,6 +14,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.tovie
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Hilt
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Hilt
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -72,6 +73,36 @@ class Activity_Hilt : XELActivity_Base(), HiltInterface
 //        mViewModel.viewModelInit()
 
         XELLogUtil.e(XELGlobalDefine.TAG, "CLASS B :" + HiltClassADto(HiltClassBDto("asdflkjasdfk")).classB.classBtitle)
+
+
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "CoroutineScope 시작")
+        CoroutineScope(Dispatchers.Default).launch()
+        {
+            val job1 = launch {
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "JOB1")
+                delay(3000)
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "JOB1-1")
+
+            }
+
+            testFun()
+
+            val job2 = launch {
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "JOB2")
+            }
+
+            val job3 = launch {
+                XELLogUtil.d_function(XELGlobalDefine.TAG, "JOB3")
+            }
+        }
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "CoroutineScope 끝")
+    }
+
+    fun testFun ()
+    {
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "testFun")
+        //delay(3000)
+        XELLogUtil.d_function(XELGlobalDefine.TAG, "testFun end")
     }
 
     override fun doStart() {

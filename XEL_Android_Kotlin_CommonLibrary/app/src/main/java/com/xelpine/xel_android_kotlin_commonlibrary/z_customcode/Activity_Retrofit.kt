@@ -1,7 +1,6 @@
 package com.xelpine.xel_android_kotlin_commonlibrary.z_customcode
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.google.gson.annotations.SerializedName
@@ -14,12 +13,13 @@ import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityRetrofit
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.RetrofitInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Retrofit
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Retrofit
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+
 
 class Activity_Retrofit : XELActivity_Base(), RetrofitInterface
 {
@@ -69,17 +69,16 @@ class Activity_Retrofit : XELActivity_Base(), RetrofitInterface
 
     override fun initAfterLogic() {
 
-//        val retrofit = Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
-//            .addConverterFactory(GsonConverterFactory.create()).build();
-        val service = XELRetrofitUtils("https://httpbin.org/").retrofitInstance
-            .create(RetrofitService::class.java)
+
 
         // GET
-//        service.getComments().enqueue(object : Callback<ArrayList<RetrofitComments>>{
-//            override fun onResponse(call: Call<ArrayList<RetrofitComments>>, response: Response<ArrayList<RetrofitComments>>) {
-//                var result: ArrayList<RetrofitComments>? = response.body()
-//                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.toString());
-//
+        val service = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
+
+        service.getComments("asdgasd", "tttget").enqueue(object : Callback<ArrayList<RetrofitComments>>{
+            override fun onResponse(call: Call<ArrayList<RetrofitComments>>, response: Response<ArrayList<RetrofitComments>>) {
+                var result: ArrayList<RetrofitComments>? = response.body()
+                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.toString());
+
 //                for (index : Int in 0 until result!!.size)
 //                {
 //                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).postId)
@@ -88,35 +87,34 @@ class Activity_Retrofit : XELActivity_Base(), RetrofitInterface
 //                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).email)
 //                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).body)
 //                }
-//            }
-//
-//            override fun onFailure(call: Call<ArrayList<RetrofitComments>>, t: Throwable) {
-//                XELLogUtil.e_function(XELGlobalDefine.TAG, "onResponse 실패 : ${t.message.toString()}")
-//            }
-//        })
-
-        // POST
-        service.postComments("234ad").enqueue(object : Callback<RetrofitPosts>{
-            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
-                var result: RetrofitPosts? = response.body()
-                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.toString());
-                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.test)
-
-//                for (index : Int in 0 until result!!.size)
-//                {
-////                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).postId)
-////                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).id)
-////                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).name)
-////                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).email)
-////                    XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result.get(index).body)
-//                }
             }
 
-            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<RetrofitComments>>, t: Throwable) {
                 XELLogUtil.e_function(XELGlobalDefine.TAG, "onResponse 실패 : ${t.message.toString()}")
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "onResponse 실패 : ${call.toString()}")
             }
         })
+
+//        // POST
+//        val service = XELRetrofitUtils("https://httpbin.org/").create()
+//
+//        val requestBody: RequestBody = MultipartBody.Builder()
+//            .setType(MultipartBody.FORM)
+//            .addFormDataPart("param1", "TESTPARAM1")
+//            .addFormDataPart("param2", "TESTPARAM2")
+//            .build()
+//
+//        service.postComments(requestBody).enqueue(object : Callback<RetrofitPosts>{
+//            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
+//                var result: RetrofitPosts? = response.body()
+//                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.toString());
+//                XELLogUtil.i_function(XELGlobalDefine.TAG, "onResponse 성공: " + result?.test)
+//            }
+//
+//            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "onResponse 실패 : ${t.message.toString()}")
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "onResponse 실패 : ${call.toString()}")
+//            }
+//        })
 
 //        service.getUserPage("1")?.enqueue(object : Callback<User> {
 //            override fun onResponse(call: Call<User>, response: Response<User>) {
@@ -185,11 +183,15 @@ interface RetrofitService {
 
     //GET 예제
     @GET("posts/1/comments")
-    fun getComments(): Call<ArrayList<RetrofitComments>>
+    fun getComments(
+        @Query("userId") userid : String,
+        @Query("ttt") ttt : String
+    ): Call<ArrayList<RetrofitComments>>
 
-    @FormUrlEncoded
     @POST("post")
-    fun postComments(@Field("test") test : String): Call<RetrofitPosts>
+    fun postComments(
+        @Body requestBody : RequestBody
+    ): Call<RetrofitPosts>
 
     @GET("posts/{page}")
     fun getUserPage(@Path("page") page: String): Call<RetrofitComments>
