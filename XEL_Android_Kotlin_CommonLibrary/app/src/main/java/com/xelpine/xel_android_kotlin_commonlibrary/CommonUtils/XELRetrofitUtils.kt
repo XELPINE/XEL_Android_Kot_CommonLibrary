@@ -23,7 +23,7 @@ class XELRetrofitUtils (
 //        return retrofitInstance
 //    }
 
-    private val CONNECT_TIMEOUT_SEC = 20000L
+    private val CONNECT_TIMEOUT_SEC = 5000L
 
     fun create(): RetrofitService
     {
