@@ -13,11 +13,8 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.dto.HiltClassBD
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.HiltInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Hilt
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Hilt
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class Activity_Hilt : XELActivity_Base(), HiltInterface
 {
 //    // DataBinding
@@ -28,7 +25,7 @@ class Activity_Hilt : XELActivity_Base(), HiltInterface
     // Adapter
 //    lateinit var HiltListAdapter : HiltListAdapter
 
-    @Inject lateinit var classA : HiltClassADto
+    lateinit var classA : HiltClassADto
 
     override fun doCreate(savedInstanceState: Bundle?) {
         super.doCreate(savedInstanceState)

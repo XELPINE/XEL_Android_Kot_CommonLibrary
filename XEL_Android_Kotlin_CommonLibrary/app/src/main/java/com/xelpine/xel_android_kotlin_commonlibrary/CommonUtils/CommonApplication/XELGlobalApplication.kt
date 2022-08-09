@@ -8,9 +8,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.xelpine.xel_android_kotlin_commonlibrary.CommonUtils.XELNotificationUtil.createNotificationChannel
-import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
 class XELGlobalApplication : Application()
 {
     companion object
