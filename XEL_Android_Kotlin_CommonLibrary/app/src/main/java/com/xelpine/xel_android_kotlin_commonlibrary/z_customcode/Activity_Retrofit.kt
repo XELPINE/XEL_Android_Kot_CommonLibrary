@@ -13,6 +13,10 @@ import com.xelpine.xel_android_kotlin_commonlibrary.databinding.ActivityRetrofit
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.toviewinterface.RetrofitInterface
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodelfactory.ViewModelFactory_Retrofit
 import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.viewmodel.viewmodels.ViewModel_Retrofit
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -73,84 +77,105 @@ class Activity_Retrofit : XELActivity_Base(), RetrofitInterface
          */
         val service = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
 
-        service.testGet("asdgasd", "tttget").enqueue(object : Callback<ArrayList<RetrofitComments>>{
-            override fun onResponse(call: Call<ArrayList<RetrofitComments>>, response: Response<ArrayList<RetrofitComments>>)
-            {
-                if (response.isSuccessful)
-                {
-                    var result: ArrayList<RetrofitComments>? = response.body()
-                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service onResponse 성공: " + result?.get(0).toString())
-                }
-                else
-                {
-                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service onResponse 실패")
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<RetrofitComments>>, t: Throwable) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "service onFailure 실패 : ${t.message.toString()}")
-            }
-        })
-
-
+//        service.testGet("asdgasd", "tttget").enqueue(object : Callback<ArrayList<RetrofitComments>>{
+//            override fun onResponse(call: Call<ArrayList<RetrofitComments>>, response: Response<ArrayList<RetrofitComments>>)
+//            {
+//                if (response.isSuccessful)
+//                {
+//                    var result: ArrayList<RetrofitComments>? = response.body()
+//                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service onResponse 성공: " + result?.get(0).toString())
+//                }
+//                else
+//                {
+//                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service onResponse 실패")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ArrayList<RetrofitComments>>, t: Throwable) {
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "service onFailure 실패 : ${t.message.toString()}")
+//            }
+//        })
 
         /**
-         * POST
+         * RxKotlin + Retrofit2
          */
-        val service2 = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
+        var test = service.testGet("asdgasd", "tttget")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onNext = { items ->
+                    items.forEach {
 
-        // Body
-        val postsBody: RetrofitPosts = RetrofitPosts(
-            10, 100, "TEST TITLE", "TEST BODY"
-        )
+                        XELLogUtil.i_function(XELGlobalDefine.TAG, "onNext " + it)
+                    }
 
-        service2.testPost(postsBody).enqueue(object : Callback<RetrofitPosts>{
-            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
-
-                if (response.isSuccessful)
-                {
-                    var result: RetrofitPosts? = response.body()
-                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service2 onResponse 성공: " + result?.toString());
+                },
+                onComplete = { XELLogUtil.i_function(XELGlobalDefine.TAG, "onComplete")},
+                onError = {e ->
+                    println(e.toString())
                 }
-                else
-                {
-                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패")
-                }
-
-            }
-
-            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패 : ${t.message.toString()}")
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패 : ${call.toString()}")
-            }
-        })
+            )
 
 
-        /**
-         * POST + Field
-         */
-        val service3 = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
 
-        service3.testPostWithUrlEncoded(50, "service3 TITLE", "service3 BODY").enqueue(object : Callback<RetrofitPosts>{
-            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
 
-                if (response.isSuccessful)
-                {
-                    var result: RetrofitPosts? = response.body()
-                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service3 onResponse 성공: " + result?.toString());
-                }
-                else
-                {
-                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패")
-                }
-
-            }
-
-            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패 : ${t.message.toString()}")
-                XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패 : ${call.toString()}")
-            }
-        })
+//        /**
+//         * POST
+//         */
+//        val service2 = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
+//
+//        // Body
+//        val postsBody: RetrofitPosts = RetrofitPosts(
+//            10, 100, "TEST TITLE", "TEST BODY"
+//        )
+//
+//        service2.testPost(postsBody).enqueue(object : Callback<RetrofitPosts>{
+//            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
+//
+//                if (response.isSuccessful)
+//                {
+//                    var result: RetrofitPosts? = response.body()
+//                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service2 onResponse 성공: " + result?.toString());
+//                }
+//                else
+//                {
+//                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패")
+//                }
+//
+//            }
+//
+//            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패 : ${t.message.toString()}")
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "service2 onResponse 실패 : ${call.toString()}")
+//            }
+//        })
+//
+//
+//        /**
+//         * POST + Field
+//         */
+//        val service3 = XELRetrofitUtils("https://jsonplaceholder.typicode.com/").create()
+//
+//        service3.testPostWithUrlEncoded(50, "service3 TITLE", "service3 BODY").enqueue(object : Callback<RetrofitPosts>{
+//            override fun onResponse(call: Call<RetrofitPosts>, response: Response<RetrofitPosts>) {
+//
+//                if (response.isSuccessful)
+//                {
+//                    var result: RetrofitPosts? = response.body()
+//                    XELLogUtil.i_function(XELGlobalDefine.TAG, "service3 onResponse 성공: " + result?.toString());
+//                }
+//                else
+//                {
+//                    XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패")
+//                }
+//
+//            }
+//
+//            override fun onFailure(call: Call<RetrofitPosts>, t: Throwable) {
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패 : ${t.message.toString()}")
+//                XELLogUtil.e_function(XELGlobalDefine.TAG, "service3 onResponse 실패 : ${call.toString()}")
+//            }
+//        })
     }
 
     override fun doStart() {
@@ -226,7 +251,7 @@ interface RetrofitService {
         //
         @Query("userId") userid : String,
         @Query("ttt") ttt : String,
-    ): Call<ArrayList<RetrofitComments>>
+    ): Observable<ArrayList<RetrofitComments>>
 
     // POST : 데이터를 BODY에 담아 전송하는 방식, 데이터 제한 없음
     @POST("posts")

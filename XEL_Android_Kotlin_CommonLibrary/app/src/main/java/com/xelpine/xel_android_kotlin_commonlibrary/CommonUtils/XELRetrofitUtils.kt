@@ -5,6 +5,7 @@ import com.xelpine.xel_android_kotlin_commonlibrary.z_customcode.RetrofitService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -39,9 +40,10 @@ class XELRetrofitUtils (
 
         retrofitInstance = Retrofit.Builder()
             .baseUrl(baseUrl)
+            .client(client)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
             .build()
 
         return retrofitInstance!!.create(RetrofitService::class.java)
